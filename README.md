@@ -13,10 +13,10 @@ apt install python pip pyenv
 
 ##lancement
 
-``
+```
 source bin/activate
 
 cd datagouv
 
 python manage.py runserver
-``
+```
