@@ -19,5 +19,4 @@ source bin/activate
 cd datagouv
 
 python manage.py runserver
-
 ``
