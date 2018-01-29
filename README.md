@@ -8,7 +8,12 @@ datagouv est un projet de visualisation de base de donnée avec Django utilisant
 
 
 ``
-apt install python pip pyenv
+apt install python python3 pip pip3 pyenv mysql libmysqlclient-dev
+
+source bin/activate
+
+pip install -r requirements.txt
+pip3 install -r requirements.txt
 ``
 
 ## lancement
