@@ -1,0 +1,12 @@
+ 1 - page de garde
+
+ 2 - intégration des bases de données avec script python lecture CSV
+
+ 3 - page de recherche par établissement
+ 4 - page affichage établissement - stat eleve
+
+ 5 - lier les établissements entre effectif étudiants & prime d'excellence scientifiques 
+
+ 6 - augmenter la page de recherche (faire un menu de recherche)
+ 
+ x - carte openstreepmap des établissements
