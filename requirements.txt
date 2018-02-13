@@ -1,8 +1,8 @@
 Django==2.0.1
-django-admin=1.1.1
+django-admin==1.1.1
 mysqlclient==1.3.12
 pip==1.3.12
 pkg-resources==0.0.0
 psycopg2==2.7.3.2
 setuptools==20.7.0
-django-config-url=0.1.1
+django-config-url==0.1.1
