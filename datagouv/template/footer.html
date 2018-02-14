@@ -1,23 +1,34 @@
-<!DOCTYPE html>
-<html>
-    <head>
-	{% load static %}
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}" />
-	<link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/navbar-fixed-side.css' %}" />
-    
-    <title> {%block title %}{% endblock title %}</title>
-</head>
+<!--Footer-->
+<footer class="page-footer blue center-on-small-only">
 
-<body>
-{% block content %}
+    <!--Footer Links-->
+    <div class="container-fluid">
+        <div class="row">
 
-<footer>
-    <div class="container">
-      <p class="text-muted">Place sticky footer content here.</p>
+            <!--First column-->
+            <div class="col-md-6">
+                <h5 class="title">Datagouv</h5>
+                <p>Ce projet s’articule autour de l’idée d’employer les données fournies au grand publique du site data.gouv.fr, et plus spécifiquement actuellement, les données lié à l’enseignement.
+                    <br>L’idée est d’employer le framework Django pour proposer aux gens des affichages graphiques intéressants et des fonctionnalités complètes d’un ensemble de donnée publique de l’enseignement.</p>
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+            <div class="col-md-6">
+                <h5 class="title">Created By team Datagouv :</h5>
+                <ul>
+                    <li><a href="#!">Adonis Ahmed Haouili</a></li>
+                    <li><a href="#!">Pacome Tisserand</a></li>
+                    <li><a href="#!">Sonia Moussaoui</a></li>
+                    <li><a href="#!">Adame Benadjal</a></li>
+                    <li><a href="#!">Alex Ly</a></li>
+                </ul>
+            </div>
+            <!--/.Second column-->
+        </div>
     </div>
-  </footer>
-{% endblock content %}
-</body>
-</html>
+    <!--/.Footer Links-->
+</footer>
+<!--/.Footer-->
+                
+        
