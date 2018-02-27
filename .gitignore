@@ -84,7 +84,6 @@ target/
 *.pyc
 __pycache__/
 
-/datagouv/datagouv/settings.py
 
 .env
 db.sqlite3

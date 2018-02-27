@@ -1,17 +1,6 @@
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
 }
 
-.theme-showcase .navbar .container {
-  width: auto;
-}
 
-.text-right {
-	text-align:right;
-}
-
-.text-overflow{
-	overflow:auto;
-}
