@@ -6,7 +6,7 @@ from sys import exit
 parser = argparse.ArgumentParser(description="Ajout de fichier à tester")
 
 parser.add_argument('-f', nargs=1, help='Envoie de fichiers à tester')
-parser.add_argument('-c', action='store_true')
+parser.add_argument('-c', action='store_true', help='Afficher uniquement les colonnes')
 
 args = parser.parse_args()
 
