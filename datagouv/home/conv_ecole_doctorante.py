@@ -6,7 +6,7 @@ from .models import EcoleDoctorante
 # s'il y a des doubles quotes, il ne doit pas être pris en compte
 # dedans...
 
-with open('home/fr-esr-ecoles_doctorales_annuaire.csv') as csvfile:
+with open('fr-esr-ecoles_doctorales_annuaire.csv') as csvfile:
     # le delimiter permet de définir les entrée
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
