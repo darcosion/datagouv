@@ -80,7 +80,7 @@ DATABASES = {
         'NAME' : "datagouv",
         'ENGINE' : 'django.db.backends.mysql',
         'USER' : "root",
-        'PASSWORD' : "root",
+        'PASSWORD' : "",
     }
 }
 
@@ -124,3 +124,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
