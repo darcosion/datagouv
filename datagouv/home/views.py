@@ -15,6 +15,9 @@ def description(request):
 def recherche(request):
     return render(request, "recherche.html", locals())
 
+def contact(request):
+    return render(request, "contact.html", locals())
+
 def renduEcoleDocto(request, ecoleid=0):
     ret = EcoleDoctorante.objects.get(numero=ecoleid)
     return render(request, "IdEcoleDoctorante.html", locals())
