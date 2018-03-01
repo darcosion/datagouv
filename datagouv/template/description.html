@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">DataGouv</h1>
-          <p>   data.gouv.fr est une plateforme de diffusion de données publiques (« open data ») de l'État français1. data.gouv.fr est développé par Etalab, une mission placée sous l'autorité du Premier ministre1.</p>
-          <p>   La première version du site data.gouv.fr a été lancée le 5 décembre 2011 par le Premier ministre François Fillon2. Cette première version est développée par l'entreprise Logica3.
-          <br>  En décembre 2013, Etalab lance une deuxième version du site. Le nouveau site est développé en interne, s'appuie sur le logiciel libre Comprehensive Knowledge Archive Network (CKAN) développé par l'Open Knowledge Foundation et ouvert aux contributions de la communauté. Chaque citoyen ou chaque association peut publier des jeux de données, des réutilisations (application, service web, analyse statistique, article de presse, etc) et des ressources4.
-          <br>  Ce projet s’articule autour de l’idée d’employer les données fournies au grand publique du site data.gouv.fr, et plus spécifiquement actuellement, les données lié à l’enseignement.
-          <br>  L’idée est d’employer le framework Django pour proposer aux gens des affichages graphiques intéressants et des fonctionnalités complètes d’un ensemble de donnée publique de l’enseignement.
-          <br>  Depuis 2014, le moteur du site data.gouv.fr s'appuie sur le développement spécifique d'un logiciel dénommé udata5.</p>
-          <p><a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Rechercher »</a></p>
-        </div>
-      </div>
+<div class="container">
+  <div class="jumbotron">
+          <div class="container">
+            <h1 class="display-3">DataGouv</h1>
+            <p>   data.gouv.fr est une plateforme de diffusion de données publiques (« open data ») de l'État français1. data.gouv.fr est développé par Etalab, une mission placée sous l'autorité du Premier ministre1.</p>
+            <p>   La première version du site data.gouv.fr a été lancée le 5 décembre 2011 par le Premier ministre François Fillon2. Cette première version est développée par l'entreprise Logica3.
+            <br>  En décembre 2013, Etalab lance une deuxième version du site. Le nouveau site est développé en interne, s'appuie sur le logiciel libre Comprehensive Knowledge Archive Network (CKAN) développé par l'Open Knowledge Foundation et ouvert aux contributions de la communauté. Chaque citoyen ou chaque association peut publier des jeux de données, des réutilisations (application, service web, analyse statistique, article de presse, etc) et des ressources4.
+            <br>  Ce projet s’articule autour de l’idée d’employer les données fournies au grand publique du site data.gouv.fr, et plus spécifiquement actuellement, les données lié à l’enseignement.
+            <br>  L’idée est d’employer le framework Django pour proposer aux gens des affichages graphiques intéressants et des fonctionnalités complètes d’un ensemble de donnée publique de l’enseignement.
+            <br>  Depuis 2014, le moteur du site data.gouv.fr s'appuie sur le développement spécifique d'un logiciel dénommé udata5.</p>
+            <br><a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Rechercher »</a>
+          </div>
+ </div>
+ <br> 
+ <br>
+</div>
  {% endblock content %}
