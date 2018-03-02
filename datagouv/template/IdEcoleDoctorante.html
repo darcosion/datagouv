@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
- <p>{{ ret.libelle }} {{ ret.numero }}</p>
+<div class="container">
+    <div class="jumbotron">
+            <div class="container">
+              <h3 class="display-3">Votre Résultat : </h3>
+              <p>le numéro est de : </p><div class="col-4">{{ ret.numero }}</div>
+               <p> Pour le libellé suivant :<div class="col-4"></div>{{ ret.libelle }} </p>
+              <br><a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Suite »</a>
+            </div>
+   </div>
+   <br> 
+   <br>
+  </div>
 {% endblock content %}

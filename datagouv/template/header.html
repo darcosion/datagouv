@@ -1,15 +1,17 @@
 <header>
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
+      <center>
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Data<span class="label label-default">gouv</span></a>
+        <a class="navbar-brand" href="{% url 'home:description' %}">Data<span class="label label-default">gouv</span></a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="recherche.html">Recherche</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li class="active"><a href="{% url 'home:description' %}">Home</a></li>
+        <li><a href="{% url 'home:recherche' %}">Recherche</a></li>
+        <li><a href="{% url 'home:description' %}">Description</a></li>
+        <li><a href="{% url 'home:contact' %}">Contact</a></li>
       </ul>
+    </center>
     </div>
   </nav>
 </header>
