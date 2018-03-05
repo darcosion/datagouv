@@ -4,9 +4,67 @@
 <div class="container">
     <div class="jumbotron">
             <div class="container">
-              <h3 class="display-3">Votre Résultat : </h3>
-              <p>le numéro est de : </p><div class="col-4">{{ ret.numero }}</div>
-               <p> Pour le libellé suivant :<div class="col-4"></div>{{ ret.libelle }} </p>
+              <!-- hey, et si on foutais des panels avec bootstrap ? ça pourrais rendre bien !  -->
+              <div class="row">
+                <div class="col-sm-4">Domaine enseigné : {{ ret.libelle }} </div>
+                {% if ret.signe %}
+                	<div class="col-sm-2"> Signe : {{ ret.signe }}</div>
+                {% else %}
+                	<div class="col-sm-2"> </div>
+                {% endif %}
+                <div class="col-sm-4">Groupe disciplinaire : {{ ret.groupe_disciplinaire }} </div>
+                <div class="col-sm-2">Crée en {{ ret.annee_de_creation }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-4">Situé à : {{ ret.localisation }}</div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">Discipline principale : {{ ret.discipline_principale }} </div>
+                <div class="col-sm-2">Accrédité en {{ ret.annee_accreditation }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-4">code labo rattachés : {{ ret.laboratoires_rattaches }}</div>
+                <div class="col-sm-2">Code support : {{ ret.code_etablissement_support }}</div>
+                <div class="col-sm-4">Etablissement support : {{ ret.etablissement_support }}</div>
+                <div class="col-sm-2">Durée accréditation : {{ ret.duree_accreditation }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-4">Directeur : {{ ret.civilite_du_directeur }} {{ ret.nom_du_directeur }} {{ ret.prenom_du_directeur }}</div>
+                <div class="col-sm-2">num : {{ ret.telephone }}</div>
+                <div class="col-sm-6">mail : {{ ret.mail }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-12">Site web : <a href="{{ ret.site_web }}">{{ ret.site_web }}</a></div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-4">Adresse : {{ ret.adresse_postale }}</div>
+                <div class="col-sm-2">code postal : {{ ret.code_postal }}</div>
+                <div class="col-sm-4">Commune : {{ ret.libelle_commune }} </div>
+                <div class="col-sm-2">{{ ret.code_commune }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-3">Departement de {{ ret.libelle_departement }}</div>
+                <div class="col-sm-3">Académie de {{ ret.libelle_academie }}</div>
+                <div class="col-sm-3">Région de {{ ret.libelle_region }}</div>
+                <div class="col-sm-3">Ville de {{ ret.libelle_ville }}</div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-12">Laboratoire actuel : <a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div>
+              </div>
+              <br/>
+              <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2"></div>
+              </div>
+              <br/>
               <br><a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Suite »</a>
             </div>
    </div>
