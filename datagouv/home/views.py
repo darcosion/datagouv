@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import EcoleDoctorante
+from .forms import ContactForm
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ def recherche(request):
     return render(request, "recherche.html", locals())
 
 def contact(request):
+    contactform = ContactForm()
     return render(request, "contact.html", locals())
 
 def renduEcoleDocto(request, ecoleid=0):
