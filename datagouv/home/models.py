@@ -69,9 +69,9 @@ class EffectifRegional(models.Model):
     a_des_effectifs_ing=models.CharField(max_length=20, null=True)
     effectif_ing=models.CharField(max_length=20, null=True) #vide à revoir
     diffusable=models.CharField(max_length=20,null=True)
-    donnees_diffusables=models.CharField(max_length=20,null=True)
+    donnees_diffusables=models.CharField(max_length=120,null=True)
     secret=models.CharField(max_length=20,null=True)
-    donnees_soumises_au_secret_stat=models.CharField(max_length=20,null=True)
+    donnees_soumises_au_secret_stat=models.CharField(max_length=120,null=True)
     niveau_geo=models.CharField(max_length=30,null=True)
     geo_id=models.CharField(max_length=10,null=True)
     reg_id=models.CharField(max_length=40,null=True)
