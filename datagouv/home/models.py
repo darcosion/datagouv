@@ -48,13 +48,13 @@ class EcoleDoctorante(models.Model):
     code_region_avant2016 = models.CharField(max_length=15, null=True)
     libelle_region_avant2016 = models.CharField(max_length=100, null=True)
 
-annee;diplome;numero_de_l_etablissement;etablissement;code_de_l_academie;academie;code_du_domaine;domaine;code_de_la_discipline;discipline;situation;remarque;nombre_de_reponses;taux_de_reponse;poids_de_la_discipline;taux_dinsertion;emplois_cadre_ou_professions_intermediaires;emplois_stables;emplois_a_temps_plein;salaire_net_median_des_emplois_a_temps_plein;salaire_brut_annuel_estime;de_diplomes_boursiers;taux_de_chomage_regional;salaire_net_mensuel_median_regional;emplois_cadre;emplois_exterieurs_a_la_region_de_luniversite;femmes;salaire_net_mensuel_regional_1er_quartile;salaire_net_mensuel_regional_3eme_quartile;cle_etab;cle_disc
+#annee;diplome;numero_de_l_etablissement;etablissement;code_de_l_academie;academie;code_du_domaine;domaine;code_de_la_discipline;discipline;situation;remarque;nombre_de_reponses;taux_de_reponse;poids_de_la_discipline;taux_dinsertion;emplois_cadre_ou_professions_intermediaires;emplois_stables;emplois_a_temps_plein;salaire_net_median_des_emplois_a_temps_plein;salaire_brut_annuel_estime;de_diplomes_boursiers;taux_de_chomage_regional;salaire_net_mensuel_median_regional;emplois_cadre;emplois_exterieurs_a_la_region_de_luniversite;femmes;salaire_net_mensuel_regional_1er_quartile;salaire_net_mensuel_regional_3eme_quartile;cle_etab;cle_disc
 
 #modèle d"effctif regional
 
 class EffectifRegional(models.Model):
     rentree=models.PositiveIntegerField(null=True)
-    rentree_universitaire=models.PositiveIntegerField(null=true) #Il y a du un - dans les données je ne peux pas le mettre en Integer
+    rentree_universitaire=models.CharField(max_length=100,null=True) #Il y a du un - dans les données je ne peux pas le mettre en Integer
     niveau_geographique=models.CharField(max_length=100,null=True)
     geo_nom=models.CharField(max_length=100, null=True)
     regroupement=models.CharField(max_length=100, null=True)
@@ -63,17 +63,17 @@ class EffectifRegional(models.Model):
     secteur_de_l_etablissement=models.CharField(max_length=100, null=True)
     sexe=models.PositiveIntegerField(null=True)
     sexe_de_l_etudiant=models.CharField(max_length=20, null=True)
-    effectif=models.PositiveIntegerField(null=True)
+    effectif=models.FloatField(null=True)
     a_des_effectifs_dut=models.CharField(max_length=20, null=True)
-    effectif_dut=models.models.CharField(max_length=20, null=True) #vide à revoir
-    a_des_effectifs_ing=models.models.CharField(max_length=20, null=True)
+    effectif_dut=models.CharField(max_length=20, null=True) #vide à revoir
+    a_des_effectifs_ing=models.CharField(max_length=20, null=True)
     effectif_ing=models.CharField(max_length=20, null=True) #vide à revoir
     diffusable=models.CharField(max_length=20,null=True)
     donnees_diffusables=models.CharField(max_length=20,null=True)
     secret=models.CharField(max_length=20,null=True)
     donnees_soumises_au_secret_stat=models.CharField(max_length=20,null=True)
-    niveau_geo=models.CharField(max_length=100,null=True)
-    geo_id=models.PositiveIntegerField(null=True)
+    niveau_geo=models.CharField(max_length=30,null=True)
+    geo_id=models.CharField(max_length=10,null=True)
     reg_id=models.CharField(max_length=40,null=True)
     aca_id=models.CharField(max_length=20,null=True)
     dep_id=models.CharField(max_length=20,null=True)
