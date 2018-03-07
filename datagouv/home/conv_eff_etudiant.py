@@ -15,11 +15,12 @@ with open('../fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv') as csv
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
     for row in reader:
+        print(compt)
         if(firstline):
             firstline = False
             continue
         trow = list(csv.reader(row, delimiter=';'))
-        t = EtudiantUniversite(True
+        t = EtudiantUniversite(compt
             ,trow[0][0]
 ,trow[0][1]
 ,trow[0][2]
@@ -100,6 +101,7 @@ with open('../fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv') as csv
 ,trow[0][77])
         try:
             t.save()
+            print("sauvegardé")
         except Exception as e:
             print(e)
             print(trow)
