@@ -51,16 +51,25 @@
 </nav>
 {% endblock menu_recherche %}
 <div class="col-sm-10">
-<h2>Navigation </h2>		
-<p>Datagouv est, comme son nom le laisse facilement deviner, un outil qui permet de rechercher des ressources, des contenus, etc., à partir de termes bien spécifiques. De Toutes les informations collectées dans une base de données.
-    <p>DataGouv référence 4 bases de données téléchargé depuis le site Data-gouv.fr</p>
-    <ul>
-        <li>r-esr-atlas_regional-effectifs-d-etudiants-inscrits.csv</li>
-        <li>fr-esr-ecoles_doctorales_annuaire.csv</li>
-        <li>fr-esr-pes-pedr-beneficiaires.csv</li>
-        <li>fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv</li>
-    </ul>
-    <br> Il suffit de renseigner les mots qui forment la requête et DataGouv déniche automatiquement les ressources correspondant à la recherche.</p>
+  <h2>Navigation </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>numéro</th>
+        <th>libelle</th>
+        <th>université</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in list_ecoledocto %}
+      	<tr>
+      	  <td><a href="{% url 'home:idecole' i.numero %}"><button type="button" class="btn btn-sm btn-primary">{{ i.numero }}</button></a></td>
+      	  <td>{{ i.libelle }}</td>
+      	  <td>{{ i.liste_tous_etablissements }}</td>
+      	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
 </div>
