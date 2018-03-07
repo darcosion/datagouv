@@ -6,6 +6,12 @@
             <div class="container">
               <!-- hey, et si on foutais des panels avec bootstrap ? ça pourrais rendre bien !  -->
               <div class="row">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                 <div class="panel-title">Informations générales</div>
+                </div>
+              <div class="panel panel-body">
+              <div class="row">
                 <div class="col-sm-4">Domaine enseigné : {{ ret.libelle }} </div>
                 {% if ret.signe %}
                 	<div class="col-sm-2"> Signe : {{ ret.signe }}</div>
@@ -29,33 +35,65 @@
                 <div class="col-sm-4">Etablissement support : {{ ret.etablissement_support }}</div>
                 <div class="col-sm-2">Durée accréditation : {{ ret.duree_accreditation }}</div>
               </div>
+                </div>
+                </div>
+            </div>
               <br/>
               <div class="row">
-                <div class="col-sm-4">Directeur : {{ ret.civilite_du_directeur }} {{ ret.nom_du_directeur }} {{ ret.prenom_du_directeur }}</div>
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <div class="panel-title">Directeur</div>
+                  </div>
+                <div class="panel-body">
+                <div class="col-sm-4">{{ ret.civilite_du_directeur }} {{ ret.nom_du_directeur }} {{ ret.prenom_du_directeur }}</div>
                 <div class="col-sm-2">num : {{ ret.telephone }}</div>
                 <div class="col-sm-6">mail : {{ ret.mail }}</div>
+                </div>
+                </div>
               </div>
               <br/>
               <div class="row">
-                <div class="col-sm-12">Site web : <a href="{{ ret.site_web }}">{{ ret.site_web }}</a></div>
+                <div class="panel panel-warning">
+                  <div class="panel-heading">
+                    <div class="panel-title">Site web</div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="col-sm-12"><a href="{{ ret.site_web }}">{{ ret.site_web }}</a></div>
+                  </div>
+                </div>
               </div>
               <br/>
               <div class="row">
-                <div class="col-sm-4">Adresse : {{ ret.adresse_postale }}</div>
-                <div class="col-sm-2">code postal : {{ ret.code_postal }}</div>
-                <div class="col-sm-4">Commune : {{ ret.libelle_commune }} </div>
-                <div class="col-sm-2">{{ ret.code_commune }}</div>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title">Localisation</div>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-4">Adresse : {{ ret.adresse_postale }}</div>
+                    <div class="col-sm-2">code postal : {{ ret.code_postal }}</div>
+                    <div class="col-sm-4">Commune : {{ ret.libelle_commune }} </div>
+                    <div class="col-sm-2">{{ ret.code_commune }}</div>
+                  </div>
+                  <br/>
+                  <div class="row">
+                    <div class="col-sm-3">Departement de {{ ret.libelle_departement }}</div>
+                    <div class="col-sm-3">Académie de {{ ret.libelle_academie }}</div>
+                    <div class="col-sm-3">Région de {{ ret.libelle_region }}</div>
+                    <div class="col-sm-3">Ville de {{ ret.libelle_ville }}</div>
+                  </div>
+                </div>
               </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-3">Departement de {{ ret.libelle_departement }}</div>
-                <div class="col-sm-3">Académie de {{ ret.libelle_academie }}</div>
-                <div class="col-sm-3">Région de {{ ret.libelle_region }}</div>
-                <div class="col-sm-3">Ville de {{ ret.libelle_ville }}</div>
               </div>
-              <br/>
               <div class="row">
-                <div class="col-sm-12">Laboratoire actuel : <a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div>
+                <div class="panel panel-warning">
+                  <div class="panel-heading">
+                    <div class="panel-title">Laboratoire actuel</div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="col-sm-12"><a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div>
+                  </div>
+                </div>
               </div>
               <br/>
               <div class="row">
