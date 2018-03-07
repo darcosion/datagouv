@@ -14,6 +14,7 @@ def description(request):
     return render(request, "description.html", locals())
 
 def recherche(request):
+    list_ecoledocto = EcoleDoctorante.objects.all()[:25]
     return render(request, "recherche.html", locals())
 
 def contact(request):
