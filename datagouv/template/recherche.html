@@ -51,6 +51,30 @@
 </nav>
 {% endblock menu_recherche %}
 <div class="col-sm-10">
+    {% if list_fregion %}
+    {% block recherche_effectifregional %}
+    <h2>Liste des régions: </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Rentrée</th>
+          <th>Emplacement</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_fregion %}
+          <tr>
+            <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+            <td>{{ i.rentree_universitaire }}</td>
+            <td>{{ i.niveau_geographique }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+    {% endif %}
+  
   {% if list_ecoledocto %}
   {% block recherche_ecoledocto %}
   <h2>Liste d'école doctorantes : </h2>
@@ -83,7 +107,6 @@
         <th>id</th>
         <th>Année</th>
         <th>Discipline</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -101,5 +124,6 @@
 </div>
 
 </div>
+
 {% endblock content %}
                 
