@@ -162,4 +162,34 @@ class EtudiantUniversite(models.Model):
     NbEtudiantProcessusBologne = models.IntegerField(default=0)
     NbEtudiantBrics = models.IntegerField(default=0)
 
+#1*annee;2*code_sexe;3*sexe;4*code_secteur_cnu;5*secteur_disciplinaire;6*code_groupe_corps;7*groupe_de_corps;8*code_uai;9*etablissement;
+#10*code_academie;11*academie;12*code_region;13*region;14*code_pres;15*pres;16*code_idex;17*idex;
+# 18*beneficiaires;19*geo_localisation
+
+#1*2009;2*1;3*Hommes;4*3;5*Sciences;6*2;7*Maîtres de conférences et assimilés;8*0940607Z;9*École normale supérieure de Cachan;
+# 10*24;
+#11*Créteil;12*11;13*Île-de-France;14*0912274C;15*PRES UniverSud Paris;16*3;17*IDEX PARIS SACLAY;18*6;19*48.7891, 2.325316
+
+class BenefPrimeExcellence(models.Model):
+    annee = models.IntegerField(default=0,null = True)
+    code_sexe = models.IntegerField(default=0,null = True)
+    sexe = models.CharField(max_length=15, null=True)
+    code_secteur_cnu = models.IntegerField(default=0,null=True)
+    secteur_disciplinaire = models.CharField(max_length=100, null=True)
+    code_groupe_corps = models.IntegerField(default=0,null=True)
+    groupe_de_corps = models.CharField(max_length = 150, null =True)
+    code_uai = models.CharField(max_length=20, null=True)
+    etablissement = models.CharField(max_length=150, null=True)
+    code_academie = models.IntegerField(default=0,null=True)
+    academie = models.CharField(max_length=50, null =True)
+    code_region = models.IntegerField(default=0, null=True)
+    region = models.CharField(max_length=100, null=True)
+    code_pres = models.CharField(max_length=30, null=True)
+    pres = models.CharField(max_length=150, null=True)
+    code_idex = models.IntegerField(default=0, null=True)
+    index = models.CharField(max_length=100, null=True)
+    beneficiaires = models.IntegerField(default=0,null=True)
+    geo_localisation = models.CharField(max_length=100, null=True)
+
+
 # Create your models here.
