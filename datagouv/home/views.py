@@ -35,3 +35,7 @@ def contact(request):
 def renduEcoleDocto(request, ecoleid=0):
     ret = EcoleDoctorante.objects.get(numero=ecoleid)
     return render(request, "IdEcoleDoctorante.html", locals())
+
+def rendufregion(request, regionid=0):
+    ret = EffectifRegional.objects.get(id=regionid)
+    return render(request, "effectifregional.html", locals()) 
