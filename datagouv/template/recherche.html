@@ -51,7 +51,9 @@
 </nav>
 {% endblock menu_recherche %}
 <div class="col-sm-10">
-  <h2>Navigation </h2>
+  {% if list_ecoledocto %}
+  {% block recherche_ecoledocto %}
+  <h2>Liste d'école doctorantes : </h2>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -70,6 +72,32 @@
       {% endfor %}
     </tbody>
   </table>
+  {% endblock %}
+  {% endif %}
+  {% if list_promo %}
+  {% block recherche_promo %}
+  <h2>Liste des promotions : </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Année</th>
+        <th>Discipline</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in list_promo %}
+      	<tr>
+      	  <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+      	  <td>{{ i.rentreeDate }}</td>
+      	  <td>{{ i.Discipline }}</td>
+      	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}
+  {% endif %}
 </div>
 
 </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import EcoleDoctorante
+from .models import EcoleDoctorante, EtudiantUniversite
 from .forms import ContactForm
 
 # Create your views here.
@@ -14,7 +14,14 @@ def description(request):
     return render(request, "description.html", locals())
 
 def recherche(request):
+    return render(request, "recherche.html", locals())
+
+def recherche_ecole(request):
     list_ecoledocto = EcoleDoctorante.objects.all()[:25]
+    return render(request, "recherche.html", locals())
+
+def recherche_promo(request):
+    list_promo = EtudiantUniversite.objects.all()[:25]
     return render(request, "recherche.html", locals())
 
 def contact(request):
