@@ -80,7 +80,7 @@ DATABASES = {
         'NAME' : "datagouv",
         'ENGINE' : 'django.db.backends.mysql',
         'USER' : "root",
-        'PASSWORD' : "",
+        'PASSWORD' : "root",
     }
 }
 
