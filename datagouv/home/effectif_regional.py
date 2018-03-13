@@ -12,11 +12,12 @@ with open('../fr-esr-atlas_regional-effectifs-d-etudiants-inscrits.csv') as csvf
     # le delimiter permet de définir les entrée
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
+    print(compt)
     for row in list(reader)[1:]:
         trow = list(csv.reader(row, delimiter=';'))
         if(trow[0][10] == ''):
             trow[0][10] = None
-        t = EffectifRegional(True
+        t = EffectifRegional(compt
             ,trow[0][0]
 ,trow[0][1]
 ,trow[0][2]
