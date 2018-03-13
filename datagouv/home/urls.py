@@ -8,6 +8,9 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'description/$', views.description, name='description'),
     url(r'recherche/$', views.recherche, name='recherche'),
+    url(r'recherche/ecole/$', views.recherche_ecole, name='recherche_ecole'),
+    url(r'recherche/promo/$', views.recherche_promo, name='recherche_promo'),
+    url(r'recherche/fregion/$', views.recherche_effectifregional, name='recherche_effectifregional'),
     url(r'contact/$', views.contact, name='contact'),
 ]
 
