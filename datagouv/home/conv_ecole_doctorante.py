@@ -12,8 +12,10 @@ with open('fr-esr-ecoles_doctorales_annuaire.csv') as csvfile:
     reader = csv.reader(csvfile, delimiter='\n')
     for row in list(reader)[1:]:
         trow = list(csv.reader(row, delimiter=';'))
-        if(trow[0][10] == ''):
-            trow[0][10] = None
+        if(trow[0][24] == ''):
+            trow[0][24] = None
+        else:
+            trow[0][24] = trow[0][24].replace(" ", "")[:10]
         t = EcoleDoctorante(trow[0][0]
 ,trow[0][1]
 ,trow[0][2]
