@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/recherche/" method="GET">
+        <input type="search" name="q" placeholder="Votre recherche">
+        <input type="submit" value="Rechercher" >
+</form>
+{% endblock content %}

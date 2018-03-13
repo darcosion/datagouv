@@ -81,6 +81,7 @@ class EffectifRegional(models.Model):
 
 
 class EtudiantUniversite(models.Model):
+    id = models.PositiveIntegerField(primary_key=True)
     rentreeAnnee = models.IntegerField()
     rentreeDate = models.CharField(max_length=25, null=True)
     TypeEtablissement = models.CharField(max_length=80, null=True)

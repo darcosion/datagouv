@@ -1,16 +1,128 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Navigation </h2>		
-<p>Datagouv est, comme son nom le laisse facilement deviner, un outil qui permet de rechercher des ressources, des contenus, etc., à partir de termes bien spécifiques. De Toutes les informations collectées dans une base de données.
-    <p>DataGouv référence 4 bases de données téléchargé depuis le site Data-gouv.fr</p>
-    <ul>
-        <li>r-esr-atlas_regional-effectifs-d-etudiants-inscrits.csv</li>
-        <li>fr-esr-ecoles_doctorales_annuaire.csv</li>
-        <li>fr-esr-pes-pedr-beneficiaires.csv</li>
-        <li>fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv</li>
-    </ul>
-    <br> Il suffit de renseigner les mots qui forment la requête et DataGouv déniche automatiquement les ressources correspondant à la recherche.</p>
+<div class="row">
+{% block menu_recherche %}
+	
+<nav class="nav-side-menu col-sm-2">z
+    <div class="brand">MENU</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+  
+            <ul id="menu-content" class="menu-content collapse out">
+               
+
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-gift fa-lg"></i> Acceuil <span class="arrow"></span></a>
+                </li>
+               
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                </li>  
+               
+
+
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fa fa-car fa-lg"></i> Recherche <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                  <li>Etudiant</li>
+                  <li>Enseignants 2</li>
+                  <li>Chercheurs</li>
+                </ul>
+                
+
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-user fa-lg"></i> Profile
+                  </a>
+                  </li>
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li>
+            </ul>
+     </div>
+</nav>
+{% endblock menu_recherche %}
+<div class="col-sm-10">
+    {% if list_fregion %}
+    {% block recherche_effectifregional %}
+    <h2>Liste des régions: </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Rentrée</th>
+          <th>Emplacement</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_fregion %}
+          <tr>
+            <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+            <td>{{ i.rentree_universitaire }}</td>
+            <td>{{ i.niveau_geographique }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+    {% endif %}
+  
+  {% if list_ecoledocto %}
+  {% block recherche_ecoledocto %}
+  <h2>Liste d'école doctorantes : </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>numéro</th>
+        <th>libelle</th>
+        <th>université</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in list_ecoledocto %}
+      	<tr>
+      	  <td><a href="{% url 'home:idecole' i.numero %}"><button type="button" class="btn btn-sm btn-primary">{{ i.numero }}</button></a></td>
+      	  <td>{{ i.libelle }}</td>
+      	  <td>{{ i.liste_tous_etablissements }}</td>
+      	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}
+  {% endif %}
+  {% if list_promo %}
+  {% block recherche_promo %}
+  <h2>Liste des promotions : </h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Année</th>
+        <th>Discipline</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in list_promo %}
+      	<tr>
+      	  <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+      	  <td>{{ i.rentreeDate }}</td>
+      	  <td>{{ i.Discipline }}</td>
+      	</tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endblock %}
+  {% endif %}
+</div>
+
 </div>
 
 {% endblock content %}
