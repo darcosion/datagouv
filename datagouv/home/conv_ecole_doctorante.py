@@ -62,3 +62,4 @@ with open('fr-esr-ecoles_doctorales_annuaire.csv') as csvfile:
 ,trow[0][43])
         t.save()
 
+
