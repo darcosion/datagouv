@@ -3,8 +3,9 @@
 {% block content %}
 <div class="row">
 {% block menu_recherche %}
-	
-<nav class="nav-side-menu col-sm-2">z
+
+<div class="col-sm-2">
+<nav class="nav-side-menu">
     <div class="brand">MENU</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
   
@@ -49,8 +50,10 @@
             </ul>
      </div>
 </nav>
+</div>
 {% endblock menu_recherche %}
 <div class="col-sm-10">
+  <p>test</p>
   {% if list_ecoledocto %}
   {% block recherche_ecoledocto %}
   <h2>Liste d'école doctorantes : </h2>
