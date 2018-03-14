@@ -22,7 +22,9 @@ def recherche_ecole(request):
 def recherche_ecolefiltre(request):
     if(request.path == "/recherche/ecole/libelle/"):
         list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[:25]
-    path = request.path
+    if(request.path == "/recherche/ecole/univ/"):
+        list_ecoledocto = EcoleDoctorante.objects.order_by('liste_tous_etablissements')[:25]
+    path = request.path #debug
     return render(request, "recherche.html", locals())
 
 def recherche_promo(request):
