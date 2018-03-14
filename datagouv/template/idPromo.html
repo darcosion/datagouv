@@ -2,111 +2,111 @@
 
 {% block contenu_recherche %}
 <div class="col-sm-10">
-<div class="container">
-    <div class="jumbotron">
-            <div class="container">
-              <!-- hey, et si on foutais des panels avec bootstrap ? ça pourrais rendre bien !  -->
-              <div class="row">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                 <div class="panel-title">Informations générales</div>
-                </div>
-              <div class="panel panel-body">
-              <div class="row">
-                <div class="col-sm-4">Domaine enseigné : {{ ret.libelle }} </div>
-                {% if ret.signe %}
-                	<div class="col-sm-2"> Signe : {{ ret.signe }}</div>
-                {% else %}
-                	<div class="col-sm-2"> </div>
-                {% endif %}
-                <div class="col-sm-4">Groupe disciplinaire : {{ ret.groupe_disciplinaire }} </div>
-                <div class="col-sm-2">Crée en {{ ret.annee_de_creation }}</div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4">Situé à : {{ ret.localisation }}</div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">Discipline principale : {{ ret.discipline_principale }} </div>
-                <div class="col-sm-2">Accrédité en {{ ret.annee_accreditation }}</div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4">code labo rattachés : {{ ret.laboratoires_rattaches }}</div>
-                <div class="col-sm-2">Code support : {{ ret.code_etablissement_support }}</div>
-                <div class="col-sm-4">Etablissement support : {{ ret.etablissement_support }}</div>
-                <div class="col-sm-2">Durée accréditation : {{ ret.duree_accreditation }}</div>
-              </div>
-                </div>
-                </div>
-            </div>
-              <br/>
-              <div class="row">
-                <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <div class="panel-title">Directeur</div>
+        <div class="container">
+            <div class="jumbotron">
+                    <div class="container">
+                      <!-- hey, et si on foutais des panels avec bootstrap ? ça pourrais rendre bien !  -->
+                        <div class="row">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="panel-title">L'Inscription :</div>
+                                </div>
+                            <div class="panel panel-body">
+                                <div class="col-sm-3">Année : {{ ret.rentreeAnnee }} </div>
+                                <div class="col-sm-3">Rentrée : {{ ret.rentreeDate }} </div>
+                                <div class="col-sm-3">Rentrée : {{ ret.etablissementId }} </div>
+                                <div class="col-sm-3">Nombre Étudiants : {{ ret.NbEtudiantInscriptionPrincipale}} </div>
+                                <div class="col-sm-3">Nombre Nouveaux Bacheliers : {{ ret.NbNouveauBacheliers  }} </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <div class="panel-title">L'Etablissement :</div>
+                                </div>
+                            <div class="panel-body">
+                                <div class="col-sm-6">Typologie : {{ ret.TypologieEtablissement }}</div>
+                                <div class="col-sm-2">Type : {{ ret.TypeEtablissement }}</div>  
+                                <div class="col-sm-3">Nom : {{ ret.etablissementId }}</div>
+                                <div class="col-sm-3">Opérateur : {{ ret.Opérateur }} </div>
+                                <div class="col-sm-3">Opérateur : {{ ret.OperateurId }} </div>
+                                <div class="col-sm-3">Code géo : {{ ret.IdentifiantEter }}</div>
+                                {% if ret.sigle %}
+                                <div class="col-sm-3">sigle : {{ ret.sigle }}</div>
+                                {% else %}
+                                <div class="col-sm-3"></div>
+                                {% endif %}
+                                <div class="col-sm-12">Siege : {{ ret.SiegeEtablissement }} </div>
+                        </div>
+                      
+                    </div>
+                    
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <div class="panel panel-warning">
+                          <div class="panel-heading">
+                            <div class="panel-title">Le Baccalauréat :</div>
+                          </div>
+                          <div class="panel-body">
+                            <div class="col-sm-3">{{ ret.RegroupementBac }}</a></div>
+                            <div class="col-sm-3">Série : {{ ret.SerieBac }}</a></div>
+                            <div class="col-sm-3">Bachelier : {{ ret.BacAge }}</a></div>
+                            <div class="col-sm-3">Cause : {{ ret.BacAgeExplication }}</a></div>
+                            <div class="col-sm-3">Département : {{ ret.Attractivite_departementale }} </div>
+                            <div class="col-sm-3">Région : {{ ret.Attractivite_regionale }} </div>
+                            <div class="col-sm-3">Internationale : {{ ret.Attractivite_internationale }} </div>
+                            <div class="col-sm-3">Attractivite interne : {{ ret.ATTRAC_INTERN }} </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="panel panel-warning">
+                                <div class="panel-heading">
+                                  <div class="panel-title">Diplomes Universitaires :</div>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="col-sm-3">{{ ret.TypeDiplome }}</a></div>
+                                  <div class="col-sm-3">Cycle : {{ ret.Cycle_universitaire }}</a></div>
+                                  <div class="col-sm-3">Diplome : {{ ret.diplome }}</a></div>
+                                  <div class="col-sm-3">Niveau : bac+{{ ret.niveau }} </div>
+                                  <div class="col-sm-3">Libelé : {{ ret.niveauDiplomeInfo }} </div>
+                                  <div class="col-sm-3">Internationale : {{ ret.Attractivite_internationale }} </div>
+                                  <div class="col-sm-3">Attractivite interne : {{ ret.ATTRAC_INTERN }} </div>
+                                  <div class="col-sm-10">Discipline : {{ ret.SelectionDisciplinaire }}</a></div>
+                                  {% if ret.DisciplineId %}
+                                  <div class="col-sm-2">ID : {{ ret.DisciplineId}} </div>
+                                  {% endif%}
+                                  </div>
+                              </div>
+                      <br>
+                      <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <div class="panel-title">Les DUT (diplômes universitaires de technologie) :</div>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-sm-3">{{ ret.SpecialiteDUT }}</a></div>
+                              <div class="col-sm-3">Spécialité : {{ ret.SPEC_DUT }}</a></div>
+                              <div class="col-sm-3">Secteur : {{ ret.SpecialiteSecDUT }}</a></div>
+                              <div class="col-sm-3">Attractivite interne : {{ ret.ATTRAC_INTERN }} </div>
+                              <div class="col-sm-3">Localisation : {{ ret.CommuneSiegeEtablissement }}</a></div>
+                              <div class="col-sm-3">Département : {{ ret.DepartementSiege }} </div>
+                              <div class="col-sm-3">Académie : {{ ret.AcademieSiege }} </div>
+                              <div class="col-sm-3">Région : {{ ret.RegionSiege}} </div>
+                              <div class="col-sm-3">Unité d'Inscription : {{ ret.CommuneUniteInscription}} </div>
+                              <div class="col-sm-3">Département d'Inscription: {{ ret.DepartementUniteInscription}} </div>
+                              <div class="col-sm-3">Académie d'Inscription: {{ ret.AcademieUniteInscription }} </div>
+                              <div class="col-sm-3">Région d'Inscription: {{ ret.AcademieUniteInscription }} </div>
+                              </div>
+                          </div>
                   </div>
-                <div class="panel-body">
-                <div class="col-sm-4">{{ ret.civilite_du_directeur }} {{ ret.nom_du_directeur }} {{ ret.prenom_du_directeur }}</div>
-                <div class="col-sm-2">num : {{ ret.telephone }}</div>
-                <div class="col-sm-6">mail : {{ ret.mail }}</div>
-                </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="panel panel-warning">
-                  <div class="panel-heading">
-                    <div class="panel-title">Site web</div>
-                  </div>
-                  <div class="panel-body">
-                    <div class="col-sm-12"><a href="{{ ret.site_web }}">{{ ret.site_web }}</a></div>
-                  </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">Localisation</div>
-                </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-4">Adresse : {{ ret.adresse_postale }}</div>
-                    <div class="col-sm-2">code postal : {{ ret.code_postal }}</div>
-                    <div class="col-sm-4">Commune : {{ ret.libelle_commune }} </div>
-                    <div class="col-sm-2">{{ ret.code_commune }}</div>
-                  </div>
-                  <br/>
-                  <div class="row">
-                    <div class="col-sm-3">Departement de {{ ret.libelle_departement }}</div>
-                    <div class="col-sm-3">Académie de {{ ret.libelle_academie }}</div>
-                    <div class="col-sm-3">Région de {{ ret.libelle_region }}</div>
-                    <div class="col-sm-3">Ville de {{ ret.libelle_ville }}</div>
-                  </div>
-                </div>
-              </div>
-              </div>
-              <div class="row">
-                <div class="panel panel-warning">
-                  <div class="panel-heading">
-                    <div class="panel-title">Laboratoire actuel</div>
-                  </div>
-                  <div class="panel-body">
-                    <div class="col-sm-12"><a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div>
-                  </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-              </div>
-            </div>
-   </div>
-   <br> 
-   <br>
-  </div>
-</div>
+                      <br/>  
+                    </div>
+           </div>
+           <br> 
+           <br>
+          </div>
+        </div>
+    </div>
 {% endblock contenu_recherche %}
