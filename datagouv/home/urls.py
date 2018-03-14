@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'recherche/prime/$', views.recherche_prime, name='recherche_prime'),
     url(r'^fregion/(?P<regionid>\d+)$', views.rendufregion, name='idregion'),
     url(r'^promo/(?P<promoid>\d+)$',views.rendupromo, name='idpromo'),
+    url(r'^prime/(?P<primeid>\d+)$',views.renduprime, name='idprime'),
     url(r'contact/$', views.contact, name='contact'),
 ]
 
