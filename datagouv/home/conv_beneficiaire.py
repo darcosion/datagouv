@@ -20,7 +20,7 @@ with open('../fr-esr-pes-pedr-beneficiaires.csv') as csvfile:
             trow[0][15] = None
         if(trow[0][5] == ''):
             trow[0][5] = None
-        t = BenefPrimeExcellence(True
+        t = BenefPrimeExcellence(compt
             ,trow[0][0]
 ,trow[0][1]
 ,trow[0][2]

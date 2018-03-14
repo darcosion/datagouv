@@ -11,21 +11,17 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <title>Datagouv {%block title %}{% endblock title %}</title>
     </head>
-    
+
     <body>
-    <header>
       {% block header %}
       {% include "header.html" %}
       {% endblock %}
-    </header>
     {% block content %}
     <h1>Datagouv</h1>
     {% endblock content %}
-   <footer>
       {% block footer %}
       {% include "footer.html" %}
       {% endblock %}
-    </footer>
     
     </body>
 
