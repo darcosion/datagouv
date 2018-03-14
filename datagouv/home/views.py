@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional
+from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, EtudiantUniversite
 from .forms import ContactForm
 
 # Create your views here.
@@ -10,7 +10,6 @@ def home(request):
     return render(request, "base.html", locals())
 
 def description(request):
-
     return render(request, "description.html", locals())
 
 def recherche(request):
@@ -39,3 +38,7 @@ def renduEcoleDocto(request, ecoleid=0):
 def rendufregion(request, regionid=0):
     ret = EffectifRegional.objects.get(id=regionid)
     return render(request, "effectifregional.html", locals()) 
+
+def rendupromo(request, promoid=0):
+    ret = EtudiantUniversite.objects.get(id=promoid)
+    return render(request, "idPromo.html", locals())
