@@ -15,15 +15,9 @@
         <div class="menu-list">
   
             <ul id="menu-content" class="menu-content collapse out">
-               
-
-<<<<<<< HEAD
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-gift fa-lg"></i> Recherche École<span class="arrow"></span></a>
-=======
+            
                 <li  data-toggle="collapse" data-target="#products" class="collapsed">
                   <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-gift fa-lg"></i> Recherche ecole</a><span class="arrow"></span>
->>>>>>> 8987f62e41341a8c75643670cdd44398700f4c24
                 </li>
               <ul class="sub-menu collapse" id="products">
                 <li>Libellé</li>
@@ -31,20 +25,13 @@
               </ul>
 
                 <li data-toggle="collapse" data-target="#service" class="collapsed">
-<<<<<<< HEAD
-                  <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-globe fa-lg"></i> Recherche Promo <span class="arrow"></span></a>
-                </li> 
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-car fa-lg"></i> Recherche Région <span class="arrow"></span></a>
-=======
                   <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-globe fa-lg"></i> Recherche promo</a><span class="arrow"></span>
                 </li> 
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
                   <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-car fa-lg"></i> Recheche région</a><span class="arrow"></span>
->>>>>>> 8987f62e41341a8c75643670cdd44398700f4c24
                 </li>
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
-                    <a href="#"><i class="fa fa-car fa-lg"></i> Recheche prime excellence</a><span class="arrow"></span>
+                    <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-car fa-lg"></i> Recheche prime</a><span class="arrow"></span>
                 </li>
             </ul>
      </div>
@@ -54,7 +41,30 @@
 
 {% block contenu_recherche %}
 <div class="col-sm-10">
- 
+    {% if list_prime %}
+    {% block recherche_prime %}
+    <h2>Liste des primes: </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Établissements</th>
+          <th>Année</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_prime %}
+          <tr>
+            <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+            <td>{{ i.etablissement }}</td>
+            <td>{{ i.annee }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+    {% endif %}
+
     {% if list_fregion %}
     {% block recherche_effectifregional %}
     <h2>Liste des régions: </h2>
