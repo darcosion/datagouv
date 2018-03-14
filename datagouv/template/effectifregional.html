@@ -13,99 +13,39 @@
                 </div>
               <div class="panel panel-body">
               <div class="row">
-                <div class="col-sm-4">Rentrée : {{ ret.rentree }} </div>
-                {% if ret.rentree_universitaire  %}
-                	<div class="col-sm-2"> Rentrée universitaire : {{ ret.rentree_universitaire  }}</div>
-                {% else %}
-                	<div class="col-sm-2"> </div>
-                {% endif %}
-                <div class="col-sm-4">Niveau géographique : {{ ret.niveau_geographique }} </div>
-                <div class="col-sm-2">Nom {{ ret.geo_nom  }}</div>
+                <div class="col-sm-2">Année : {{ ret.rentree }} </div>
+                <div class="col-sm-3"> Rentrée universitaire : {{ ret.rentree_universitaire  }}</div>
+                <div class="col-sm-4">{{ ret.niveau_geographique }} de : {{ ret.geo_nom }} </div>
+                <div class="col-sm-3"> Code group : {{ ret.regroupement  }}</div>
               </div>
               <br/>
               <div class="row">
-                <div class="col-sm-4">Situé à : {{ ret.rgp_formations_ou_etablissements }}</div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">Discipline principale : {{ ret.secteur_de_l_etablissement }} </div>
-                <div class="col-sm-2">Accrédité en {{ ret.sexe }}</div>
+                <div class="col-sm-4">Formation : {{ ret.rgp_formations_ou_etablissements }}</div>
+                <div class="col-sm-6">Type d'établissement : {{ ret.secteur_de_l_etablissement }} </div>
+                <div class="col-sm-2">Secteur : {{ ret.secteur }}</div>
               </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4">code labo rattachés : {{ ret.sexe_de_l_etudiant }}</div>
-                <div class="col-sm-2">Code support : {{ ret.effectif }}</div>
-                <div class="col-sm-4">Etablissement support : {{ ret.a_des_effectifs_dut }}</div>
-                <div class="col-sm-2">Durée accréditation : {{ ret.effectif_dut }}</div>
               </div>
-                </div>
-                </div>
+              </div>
             </div>
               <br/>
               <div class="row">
-                <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <div class="panel-title">Directeur</div>
-                  </div>
-                <div class="panel-body">
-                <div class="col-sm-4">{{ ret.a_des_effectifs_ing }} {{ ret.effectif_ing }} {{ ret.diffusable }}</div>
-                <div class="col-sm-2">num : {{ ret.donnees_diffusables }}</div>
-                <div class="col-sm-6">mail : {{ ret.secret }}</div>
-                </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
                 <div class="panel panel-warning">
-                  <div class="panel-heading">
-                    <div class="panel-title">Site web</div>
-                  </div>
-                  <div class="panel-body">
-                    <div class="col-sm-12"><a href="{{ ret.site_web }}">{{ ret.donnees_soumises_au_secret_stat }}</a></div>
-                  </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-              <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="panel-title">Localisation</div>
+                 <div class="panel-title">Nombre d'effectif</div>
                 </div>
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-4">Adresse : {{ ret.niveau_geo }}</div>
-                    <div class="col-sm-2">code postal : {{ ret.geo_id }}</div>
-                    <div class="col-sm-4">Commune : {{ ret.reg_id }} </div>
-                    <div class="col-sm-2">{{ ret.aca_id }}</div>
-                  </div>
-                  <br/>
-                  <div class="row">
-                    <div class="col-sm-3">Departement de {{ ret.ldep_id }}</div>
-                    <div class="col-sm-3">Académie de {{ ret.uucr_i }}</div>
-                    <!-- <div class="col-sm-3">Région de {{ ret.libelle_region }}</div>
-                    <div class="col-sm-3">Ville de {{ ret.libelle_ville }}</div>  -->
-                  </div>
+              <div class="panel panel-body">
+                  <div class="col-sm-4">total : {{ ret.effectif }}</div>
+                  {% if ret.a_des_effectifs_dut == "oui" %}
+                  <div class="col-sm-4"> Dont {{ ret.effectif_dut }} DUT</div>
+                  {% endif %}
+                  {% if ret.a_des_effectifs_ing == "oui" %}
+                  <div class="col-sm-4">Dont {{ ret.effectif_ing }} ING</div>
+                  {% endif %}
+              </div>
                 </div>
-              </div>
-              </div>
-              <div class="row">
-                <div class="panel panel-warning">
-                  <div class="panel-heading">
-                    <div class="panel-title">Laboratoire actuel</div>
-                  </div>
-                  <div class="panel-body">
-                   <!-- <div class="col-sm-12"><a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div> -->
-                  </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-              </div>
             </div>
    </div>
-   <br> 
+   <br>
    <br>
   </div>
 </div>
