@@ -46,3 +46,7 @@ def rendufregion(request, regionid=0):
 def rendupromo(request, promoid=0):
     ret = EtudiantUniversite.objects.get(id=promoid)
     return render(request, "idPromo.html", locals())
+
+def renduprime(request, primeid=0):
+    ret = BenefPrimeExcellence.objects.get(id=primeid)
+    return render(request, "idPrime.html", locals())
