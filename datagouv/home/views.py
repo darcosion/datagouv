@@ -19,6 +19,12 @@ def recherche_ecole(request):
     list_ecoledocto = EcoleDoctorante.objects.all()[:25]
     return render(request, "recherche.html", locals())
 
+def recherche_ecolefiltre(request):
+    if(request.path == "/recherche/ecole/libelle/"):
+        list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[:25]
+    path = request.path
+    return render(request, "recherche.html", locals())
+
 def recherche_promo(request):
     list_promo = EtudiantUniversite.objects.all()[:25]
     return render(request, "recherche.html", locals())
