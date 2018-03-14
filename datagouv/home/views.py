@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, EtudiantUniversite
+from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence
 from .forms import ContactForm
 
 # Create your views here.
@@ -25,6 +25,10 @@ def recherche_promo(request):
 
 def recherche_effectifregional(request):
     list_fregion = EffectifRegional.objects.all()[:25]
+    return render(request, "recherche.html", locals())
+
+def recherche_prime(request):
+    list_prime = BenefPrimeExcellence.objects.all()[:25]
     return render(request, "recherche.html", locals())
 
 def contact(request):
