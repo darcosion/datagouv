@@ -13,28 +13,30 @@
                 </div>
               <div class="panel panel-body">
               <div class="row">
-                <div class="col-sm-4">Rentrée : {{ ret.rentree }} </div>
+                <div class="col-sm-4">Année : {{ ret.rentree }} </div>
                 {% if ret.rentree_universitaire  %}
-                	<div class="col-sm-2"> Rentrée universitaire : {{ ret.rentree_universitaire  }}</div>
+                	<div class="col-sm-2"> Pour la rentrée universitaire : {{ ret.rentree_universitaire  }}</div>
                 {% else %}
                 	<div class="col-sm-2"> </div>
                 {% endif %}
-                <div class="col-sm-4">Niveau géographique : {{ ret.niveau_geographique }} </div>
-                <div class="col-sm-2">Nom {{ ret.geo_nom  }}</div>
+                <div class="col-sm-4">Se situe dans la {{ ret.niveau_geographique }} </div>
+                <div class="col-sm-4"> de {{ ret.geo_nom  }}</div>
               </div>
               <br/>
               <div class="row">
-                <div class="col-sm-4">Situé à : {{ ret.rgp_formations_ou_etablissements }}</div>
+                <div class="col-sm-4">Inscrit(e) à la formation ou l'établissments : {{ ret.rgp_formations_ou_etablissements }}</div>
                 <div class="col-sm-2"></div>
-                <div class="col-sm-4">Discipline principale : {{ ret.secteur_de_l_etablissement }} </div>
-                <div class="col-sm-2">Accrédité en {{ ret.sexe }}</div>
+                <div class="col-sm-4">Secteur de l'etablissement : {{ ret.secteur_de_l_etablissement }} </div>
+                <div class="col-sm-2">Type : {{ ret.sexe }}</div>
               </div>
               <br/>
               <div class="row">
-                <div class="col-sm-4">code labo rattachés : {{ ret.sexe_de_l_etudiant }}</div>
-                <div class="col-sm-2">Code support : {{ ret.effectif }}</div>
-                <div class="col-sm-4">Etablissement support : {{ ret.a_des_effectifs_dut }}</div>
-                <div class="col-sm-2">Durée accréditation : {{ ret.effectif_dut }}</div>
+                <div class="col-sm-4">Sexe de l'étudiant : {{ ret.sexe_de_l_etudiant }}</div>
+                <div class="col-sm-2">Effectif : {{ ret.effectif }}</div>
+                <div class="col-sm-4">Inscrit en DUT : {{ ret.a_des_effectifs_dut }}</div>
+                {% if ret.effectif_dut  %}
+                <div class="col-sm-2">Effectif du DUT: {{ ret.effectif_dut }}</div>
+                {% endif  %}
               </div>
                 </div>
                 </div>
@@ -43,7 +45,7 @@
               <div class="row">
                 <div class="panel panel-info">
                   <div class="panel-heading">
-                    <div class="panel-title">Directeur</div>
+                    <div class="panel-title">Etudiant</div>
                   </div>
                 <div class="panel-body">
                 <div class="col-sm-4">{{ ret.a_des_effectifs_ing }} {{ ret.effectif_ing }} {{ ret.diffusable }}</div>
@@ -59,7 +61,7 @@
                     <div class="panel-title">Site web</div>
                   </div>
                   <div class="panel-body">
-                    <div class="col-sm-12"><a href="{{ ret.site_web }}">{{ ret.donnees_soumises_au_secret_stat }}</a></div>
+                    <div class="col-sm-12"><a href=>{{ ret.donnees_soumises_au_secret_stat }}</a></div>
                   </div>
                 </div>
               </div>
@@ -86,25 +88,7 @@
                 </div>
               </div>
               </div>
-              <div class="row">
-                <div class="panel panel-warning">
-                  <div class="panel-heading">
-                    <div class="panel-title">Laboratoire actuel</div>
-                  </div>
-                  <div class="panel-body">
-                   <!-- <div class="col-sm-12"><a href="{{ ret.url_structures_de_recherche_actives }}">{{ ret.url_structures_de_recherche_actives }}</a></div> -->
-                  </div>
-                </div>
-              </div>
-              <br/>
-              <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-2"></div>
-              </div>
-            </div>
-   </div>
+              
    <br> 
    <br>
   </div>

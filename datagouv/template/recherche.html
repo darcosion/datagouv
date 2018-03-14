@@ -18,7 +18,7 @@
                
 
                 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-gift fa-lg"></i> Recherche ecole<span class="arrow"></span></a>
+                  <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-gift fa-lg"></i> Recherche École<span class="arrow"></span></a>
                 </li>
               <ul class="sub-menu collapse" id="products">
                 <li>Libellé</li>
@@ -26,10 +26,10 @@
               </ul>
 
                 <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-globe fa-lg"></i> Recherche promo <span class="arrow"></span></a>
+                  <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-globe fa-lg"></i> Recherche Promo <span class="arrow"></span></a>
                 </li> 
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-car fa-lg"></i> Recherche région <span class="arrow"></span></a>
+                  <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-car fa-lg"></i> Recherche Région <span class="arrow"></span></a>
                 </li>
                 <li data-toggle="collapse" data-target="#new" class="collapsed">
                     <a href="#"><i class="fa fa-car fa-lg"></i> Recherche prime excellence <span class="arrow"></span></a>
@@ -50,7 +50,7 @@
       <thead>
         <tr>
           <th>id</th>
-          <th>Rentrée</th>
+          <th>Formation ou Établissements</th>
           <th>Emplacement</th>
         </tr>
       </thead>
@@ -58,8 +58,8 @@
         {% for i in list_fregion %}
           <tr>
             <td><a href="{% url 'home:idregion' i.id %}"><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
-            <td>{{ i.rentree_universitaire }}</td>
-            <td>{{ i.niveau_geographique }}</td>
+            <td>{{ i.rgp_formations_ou_etablissements }}</td>
+            <td>{{ i.geo_nom }}</td>
           </tr>
         {% endfor %}
       </tbody>
@@ -103,7 +103,7 @@
     <tbody>
       {% for i in list_promo %}
       	<tr>
-      	  <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+      	  <td><a href="{% url 'home:idpromo' i.id %}"><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
       	  <td>{{ i.rentreeDate }}</td>
       	  <td>{{ i.Discipline }}</td>
       	</tr>
