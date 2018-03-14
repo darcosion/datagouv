@@ -8,7 +8,7 @@ from .models import BenefPrimeExcellence
 
 compt = 1
 
-with open('../fr_esr_pes_pedr_beneficiaires.csv') as csvfile:
+with open('../fr-esr-pes-pedr-beneficiaires.csv') as csvfile:
     # le delimiter permet de définir les entrée
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
