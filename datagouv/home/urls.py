@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'recherche/$', views.recherche, name='recherche'),
     url(r'recherche/ecole/$', views.recherche_ecole, name='recherche_ecole'),
     url(r'^recherche/ecole/libelle/$', views.recherche_ecolefiltre, name='recherche_ecolelibelle'),
+    url(r'^recherche/ecole/univ/$', views.recherche_ecolefiltre, name='recherche_ecoleuniv'),
     url(r'recherche/promo/$', views.recherche_promo, name='recherche_promo'),
     url(r'recherche/fregion/$', views.recherche_effectifregional, name='recherche_effectifregional'),
     url(r'recherche/prime/$', views.recherche_prime, name='recherche_prime'),
