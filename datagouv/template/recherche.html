@@ -55,7 +55,7 @@
       <tbody>
         {% for i in list_prime %}
           <tr>
-            <td><a href=""><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+            <td><a href="{% url 'home:idprime' i.id %}"><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
             <td>{{ i.etablissement }}</td>
             <td>{{ i.annee }}</td>
           </tr>
