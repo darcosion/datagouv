@@ -31,6 +31,7 @@ def recherche_primeben(request, idparcourd=0, idparcourf=25):
         list_primeben = BenefPrimeExcellence.objects.order_by('etablissement')[int(idparcourd):int(idparcourf)]
     if(request.path == "/recherche/prime/region/"):
         list_primeben = BenefPrimeExcellence.objects.order_by('region')[int(idparcourd):int(idparcourf)]
+    path = request.path #debug
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_effectif(request, idparcourd=0, idparcourf=25):
@@ -86,4 +87,5 @@ def rendumenu(request, uri, localvar):
         localvar['idparcourf']=int(localvar['idparcourf'])+25
     locals().update(localvar)
     libelle = LibelleForm()
+
     return render(request, uri, locals())
