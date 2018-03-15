@@ -15,7 +15,7 @@ with open('../fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv') as csv
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
     for row in reader:
-        print(compt)
+        #print(compt)
         if(firstline):
             firstline = False
             continue
@@ -108,3 +108,5 @@ with open('../fr-esr-sise-effectifs-d-etudiants-inscrits-esr-public.csv') as csv
             break
         compt+=1
 
+
+print("fin de l'importation de la table des effectifs etudiants")

@@ -14,28 +14,28 @@ def description(request):
 def recherche(request):
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_ecole(request, ifparcourd=0, idparcourf=25):
-    list_ecoledocto = EcoleDoctorante.objects.all()[ifparcourd:25]
+def recherche_ecole(request, idparcourd=0, idparcourf=25):
+    list_ecoledocto = EcoleDoctorante.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_ecolefiltre(request, ifparcourd=0, idparcourf=25):
+def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
     if(request.path == "/recherche/ecole/libelle/"):
-        list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[:25]
+        list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[int(idparcourd):int(idparcourf)]
     if(request.path == "/recherche/ecole/univ/"):
-        list_ecoledocto = EcoleDoctorante.objects.order_by('liste_tous_etablissements')[:25]
+        list_ecoledocto = EcoleDoctorante.objects.order_by('liste_tous_etablissements')[int(idparcourd):int(idparcourf)]
     path = request.path #debug
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_promo(request, ifparcourd=0, idparcourf=25):
-    list_promo = EtudiantUniversite.objects.all()[:25]
+def recherche_promo(request, idparcourd=0, idparcourf=25):
+    list_promo = EtudiantUniversite.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_effectifregional(request, ifparcourd=0, idparcourf=25):
-    list_fregion = EffectifRegional.objects.all()[:25]
+def recherche_effectifregional(request, idparcourd=0, idparcourf=25):
+    list_fregion = EffectifRegional.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_prime(request, ifparcourd=0, idparcourf=25):
-    list_prime = BenefPrimeExcellence.objects.all()[:25]
+def recherche_prime(request, idparcourd=0, idparcourf=25):
+    list_prime = BenefPrimeExcellence.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
 def contact(request):
@@ -60,6 +60,9 @@ def renduprime(request, primeid=0):
 
 # wrapper d'ajout de form dans le menu
 def rendumenu(request, uri, localvar):
+    if 'idparcoud' in localvar:
+        localvar['idparcourd']=int(localvar['idparcourd'])+25
+        localvar['idparcourf']=int(localvar['idparcourf'])+25
     locals().update(localvar)
     libelle = LibelleForm()
     return render(request, uri, locals())

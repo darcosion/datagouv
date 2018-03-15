@@ -13,7 +13,7 @@ with open('../fr-esr-pes-pedr-beneficiaires.csv') as csvfile:
     # le quotechar sépare les colonnes
     reader = csv.reader(csvfile, delimiter='\n')
     for row in list(reader)[1:]:
-        print(compt)
+        #print(compt)
         trow = list(csv.reader(row, delimiter=';'))
         trow[0][8]=trow[0][8].replace('\x92',"'")
         if(trow[0][15] == ''):
@@ -48,3 +48,6 @@ with open('../fr-esr-pes-pedr-beneficiaires.csv') as csvfile:
             print(e)
             break
         compt+=1
+
+
+print("fin de l'importation de la table prime")
