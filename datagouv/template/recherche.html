@@ -22,7 +22,7 @@
               <ul class="sub-menu collapse" id="products">
                 <li data-toggle="collapse" data-target="#libelle" ><a href="{% url 'home:recherche_ecolelibelle' %}">Libellé</a><span class="arrow"></span></li>
                 <ul class="sub-menu collapse" id="libelle">
-                  <li> formulaire de libelle </li>
+                  <li> {{ libelle }} </li>
                 </ul>
                 <li><a href="{% url 'home:recherche_ecoleuniv' %}">Université</a></li>
               </ul>
