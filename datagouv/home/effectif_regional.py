@@ -52,3 +52,5 @@ with open('../fr-esr-atlas_regional-effectifs-d-etudiants-inscrits.csv') as csvf
             break
         compt+=1
 
+
+print("fin de l'importation de la table des effectifs regionals")

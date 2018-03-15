@@ -63,3 +63,5 @@ with open('fr-esr-ecoles_doctorales_annuaire.csv') as csvfile:
         t.save()
 
 
+print("fin de l'importation de la table des écoles doctorales")
+
