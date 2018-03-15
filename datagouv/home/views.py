@@ -27,10 +27,6 @@ def recherche_ecolefiltre(request):
     path = request.path #debug
     return rendumenu(request, "recherche.html", locals())
 
-def RechercheForm(request):
-        RechercheForm = RechercheForm(forms.Form)
-    return render(request, "Recherche.html", locals())
-
 def recherche_promo(request):
     list_promo = EtudiantUniversite.objects.all()[:25]
     return rendumenu(request, "recherche.html", locals())
