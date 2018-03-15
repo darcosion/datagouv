@@ -26,6 +26,27 @@ def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
     path = request.path #debug
     return rendumenu(request, "recherche.html", locals())
 
+def recherche_primeben(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/prime/etablissement/"):
+        list_primeben = BenefPrimeExcellence.objects.order_by('etablissement')[int(idparcourd):int(idparcourf)]
+    if(request.path == "/recherche/prime/region/"):
+        list_primeben = BenefPrimeExcellence.objects.order_by('region')[int(idparcourd):int(idparcourf)]
+    return rendumenu(request, "recherche.html", locals())
+
+def recherche_effectif(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/fregion/commune/"):
+        list_effectif = EffectifRegional.objects.order_by('geo_nom')[int(idparcourd):int(idparcourf)]
+    if(request.path == "/recherche/fregion/formation/"):
+        list_effectif = EffectifRegional.objects.order_by('rgp_formations_ou_etablissements')[int(idparcourd):int(idparcourf)]
+    return rendumenu(request, "recherche.html", locals())
+
+def recherche_etudiantuniversite(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/promo/etablissment/"):
+        list_etudiant = EtudiantUniversite.objects.order_by('etablissementId')[int(idpacourd):int(idparcourf)]
+    if(request.path == "/recherche/promo/region/"):
+        list_etudiant = EtudiantUniversite.objects.order_by('SiegeEtablissement')[int(idparcourd):int(idparcourf)]
+    return rendumenu(request, "recherche.html", locals())
+
 def recherche_promo(request, idparcourd=0, idparcourf=25):
     list_promo = EtudiantUniversite.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
