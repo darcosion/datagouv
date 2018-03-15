@@ -12,4 +12,4 @@ class rechercheForm(forms.Form):
     None
 
 class LibelleForm(rechercheForm):
-    libelle = forms.CharField(max_length=100)
+    libelle = forms.CharField(label="",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
