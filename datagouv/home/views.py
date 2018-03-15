@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence
-from .forms import ContactForm
+from .forms import ContactForm, LibelleForm
 
-# Create your views here.
+
 
 def home(request):
 
@@ -13,11 +13,11 @@ def description(request):
     return render(request, "description.html", locals())
 
 def recherche(request):
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecole(request):
     list_ecoledocto = EcoleDoctorante.objects.all()[:25]
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecolefiltre(request):
     if(request.path == "/recherche/ecole/libelle/"):
@@ -25,7 +25,7 @@ def recherche_ecolefiltre(request):
     if(request.path == "/recherche/ecole/univ/"):
         list_ecoledocto = EcoleDoctorante.objects.order_by('liste_tous_etablissements')[:25]
     path = request.path #debug
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def RechercheForm(request):
         RechercheForm = RechercheForm(forms.Form)
@@ -33,15 +33,15 @@ def RechercheForm(request):
 
 def recherche_promo(request):
     list_promo = EtudiantUniversite.objects.all()[:25]
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def recherche_effectifregional(request):
     list_fregion = EffectifRegional.objects.all()[:25]
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def recherche_prime(request):
     list_prime = BenefPrimeExcellence.objects.all()[:25]
-    return render(request, "recherche.html", locals())
+    return rendumenu(request, "recherche.html", locals())
 
 def contact(request):
     contactform = ContactForm()
@@ -62,3 +62,11 @@ def rendupromo(request, promoid=0):
 def renduprime(request, primeid=0):
     ret = BenefPrimeExcellence.objects.get(id=primeid)
     return render(request, "idPrime.html", locals())
+
+
+
+# décorateur d'ajout de form dans le menu
+def rendumenu(request, uri, localvar):
+    locals().update(localvar)
+    libelle = LibelleForm()
+    return render(request, uri, locals())
