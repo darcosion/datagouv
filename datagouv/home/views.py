@@ -60,8 +60,9 @@ def renduprime(request, primeid=0):
 
 # wrapper d'ajout de form dans le menu
 def rendumenu(request, uri, localvar):
-    localvar['idparcourd']=int(localvar['idparcourd'])+25
-    localvar['idparcourf']=int(localvar['idparcourf'])+25
+    if 'idparcoud' in localvar:
+        localvar['idparcourd']=int(localvar['idparcourd'])+25
+        localvar['idparcourf']=int(localvar['idparcourf'])+25
     locals().update(localvar)
     libelle = LibelleForm()
     return render(request, uri, locals())
