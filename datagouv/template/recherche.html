@@ -24,7 +24,7 @@
                           <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-book fa-lg"></i> Recherche ecole</a><span class="arrow"></span>
                     </li>
                       <ul class="sub-menu collapse" id="products">
-                        <li data-toggle="collapse" data-target="#libelle" ><a href="{% url 'home:recherche_ecolelibelle' %}">Libellé</a><span class="arrow"></span></li>
+                        <li data-toggle="collapse" data-target="#libelle"><a href="{% url 'home:recherche_ecolelibelle' %}">Libellé</a><span class="arrow"></span></li>
                           <ul class="sub-menu collapse" id="libelle">
                             <li> {{ libelle }} </li>
                           </ul>
@@ -33,41 +33,41 @@
                       <!-- F.I.N -->
 
                       <!--  Recherche Promo -->
-                        <li data-toggle="collapse" data-target="#service" class="collapsed">
+                     
+                        <li data-toggle="collapse" data-target="products" class="collapsed">
                           <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-archive fa-lg"></i> Recherche promo</a><span class="arrow"></span>
                         </li>
-                          <ul class="sub-menu collapse" id="products">
-                            <li data-toggle="collapse" data-target="#promo"><a href="{% url 'home:recherche_etudiantuniversite' %}">Établissement</a><span class="arrow"></span></li>
+                          <ul class="sub-menu collapse in" id="products">
+                            <li data-toggle="collapse" data-target="#promo"><a href="{% url 'home:recherche_etudiantuniversite' %}">Établissement</a></li>
                             <li><a href="{% url 'home:recherche_etudiantuniversite' %}">Siège</a></li>
                           </ul>
-                        </li> 
+                    
                       <!-- F.I.N -->
                         
                       <!--  Recherche Région -->
-                        <li data-toggle="collapse" data-target="#new" class="collapsed">
+                        <li data-toggle="collapse" data-target="#products" class="collapsed">
                           <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-globe fa-lg"></i> Recheche région</a><span class="arrow"></span>
                         </li>
-                          <ul class="sub-menu collapse" id="products">
-                            <li data-toggle="collapse" data-target="#region"><a href="{% url 'home:recherche_effectif' %}">Commune</a><span class="arrow"></span></li>
+                          <ul class="sub-menu collapse in" id="products">
+                            <li data-toggle="collapse" data-target="#region"><a href="{% url 'home:recherche_effectif' %}">Commune</a></span></li>
                             <li><a href="{% url 'home:recherche_effectif' %}">Formation</a></li>
                           </ul>
-                        </li>
+                      
                       <!-- F.I.N -->
 
                       <!--  Recherche Prime -->
-                        <li data-toggle="collapse" data-target="#new" class="collapsed">
+                        <li data-toggle="collapse" data-target="#products" class="collapsed">
                             <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope  fa-lg"></i> Recheche prime</a><span class="arrow"></span>
                         </li>
-                            <ul class="sub-menu collapse" id="products">
-                              <li data-toggle="collapse" data-target="#prime"><a href="{% url 'home:recherche_primeben' %}">Établissement</a><span class="arrow"></span></li>
+                            <ul class="sub-menu collapse in" id="products">
+                              <li data-toggle="collapse" data-target="#prime"><a href="{% url 'home:recherche_primeben' %}">Établissement</a></li>
                               <li><a href="{% url 'home:recherche_effectif' %}">Région</a></li>
                             </ul>
-                        </li>
+                          
                         <!--  Recherche Région -->
                     </ul>
                     <!-- F.I.N -->
                 </div>
-            </div>
         </nav>
     </div>
 
