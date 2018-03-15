@@ -64,6 +64,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p><a href="{% url 'home:recherche_prime' idparcourd idparcourf %}">Suivant</a></p>
     {% endblock %}
     {% endif %}
 
@@ -88,6 +89,7 @@
         {% endfor %}
       </tbody>
     </table>
+    <p><a href="{% url 'home:recherche_effectifregional' idparcourd idparcourf %}">Suivant</a></p>
     {% endblock %}
     {% endif %}
   {% if list_ecoledocto %}
@@ -111,6 +113,7 @@
       {% endfor %}
     </tbody>
   </table>
+  <p><a href="{% url 'home:recherche_ecole' idparcourd idparcourf %}">Suivant</a></p>
   {% endblock %}
   {% endif %}
   {% if list_promo %}
@@ -134,6 +137,7 @@
       {% endfor %}
     </tbody>
   </table>
+  <p><a href="{% url 'home:recherche_promo' idparcourd idparcourf %}">Suivant</a></p>
   {% endblock %}
   {% endif %}
 </div>

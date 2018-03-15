@@ -8,15 +8,25 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'description/$', views.description, name='description'),
     url(r'recherche/$', views.recherche, name='recherche'),
+
     url(r'recherche/ecole/$', views.recherche_ecole, name='recherche_ecole'),
+    url(r'recherche/ecole/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_ecole, name='recherche_ecole'),
     url(r'^recherche/ecole/libelle/$', views.recherche_ecolefiltre, name='recherche_ecolelibelle'),
+    url(r'^recherche/ecole/libelle/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_ecolefiltre, name='recherche_ecolelibelle'),
     url(r'^recherche/ecole/univ/$', views.recherche_ecolefiltre, name='recherche_ecoleuniv'),
+    url(r'^recherche/ecole/univ/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_ecolefiltre, name='recherche_ecoleuniv'),
     url(r'recherche/promo/$', views.recherche_promo, name='recherche_promo'),
+    url(r'recherche/promo/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_promo, name='recherche_promo'),
     url(r'recherche/fregion/$', views.recherche_effectifregional, name='recherche_effectifregional'),
+    url(r'recherche/fregion/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_effectifregional, name='recherche_effectifregional'),
     url(r'recherche/prime/$', views.recherche_prime, name='recherche_prime'),
+    url(r'recherche/prime/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_prime, name='recherche_prime'),
+
+
     url(r'^fregion/(?P<regionid>\d+)$', views.rendufregion, name='idregion'),
     url(r'^promo/(?P<promoid>\d+)$',views.rendupromo, name='idpromo'),
     url(r'^prime/(?P<primeid>\d+)$',views.renduprime, name='idprime'),
+
     url(r'contact/$', views.contact, name='contact'),
 ]
 
