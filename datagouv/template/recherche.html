@@ -37,7 +37,7 @@
                           <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-archive fa-lg"></i> Recherche promo</a><span class="arrow"></span>
                         </li>
                           <ul class="sub-menu collapse " id="promo">
-                            <li data-toggle="collapse" data-target="#"><a href="{% url 'home:recherche_etudiantetab' %}">Établissement</a></li>
+                            <li><a href="{% url 'home:recherche_etudiantetab' %}">Établissement</a></li>
                             <li><a href="{% url 'home:recherche_etudiantcommune' %}">Siège</a></li>
                           </ul>
                     
@@ -48,8 +48,8 @@
                           <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-globe fa-lg"></i> Recheche région</a><span class="arrow"></span>
                         </li>
                           <ul class="sub-menu collapse " id="region">
-                            <li data-toggle="collapse" data-target=""><a href="{% url 'home:recherche_effectif' %}">Commune</a></span></li>
-                            <li><a href="{% url 'home:recherche_effectif' %}">Formation</a></li>
+                            <li><a href="{% url 'home:recherche_effectif_commune' %}">Commune</a></span></li>
+                            <li><a href="{% url 'home:recherche_effectif_formation' %}">Formation</a></li>
                           </ul>
                       
                       <!-- F.I.N -->
@@ -59,8 +59,8 @@
                             <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope fa-lg"></i> Recheche prime</a><span class="arrow"></span>
                         </li>
                             <ul class="sub-menu collapse" id="prime">
-                              <li data-toggle="collapse" data-target=""><a href="{% url 'home:recherche_primeben' %}">Établissement</a></li>
-                              <li><a href="{% url 'home:recherche_effectif' %}">Région</a></li>
+                              <li><a href="{% url 'home:recherche_primeben_etab' %}">Établissement</a></li>
+                              <li><a href="{% url 'home:recherche_primeben_region' %}">Région</a></li>
                             </ul>
                           
                         <!--  Recherche Région -->
@@ -73,7 +73,7 @@
     <!-- F.I.N (MENU RECHERCHE)-->
 {% endblock menu_recherche %}
 {% block contenu_recherche %}
-{{ path }}
+
 <div class="col-sm-10">
 
   <!-- Table : Prime, Affichage 25 -->
