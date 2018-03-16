@@ -4,45 +4,79 @@
 <div class="row">
 {% block menu_recherche %}
   {% load static %}
-<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/menu.js' %}"></script>
-<div class="col-sm-2">
-<nav class="nav-side-menu">
-    <div class="brand">MENU RECHERCHE</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-  
-        <div class="menu-list">
-  
-            <ul id="menu-content" class="menu-content collapse out">
-            
-                <li  data-toggle="collapse" data-target="#products" class="collapsed">
-                  <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-book fa-lg"></i> Recherche ecole</a><span class="arrow"></span>
-                </li>
-              <ul class="sub-menu collapse" id="products">
-                <li data-toggle="collapse" data-target="#libelle" ><a href="{% url 'home:recherche_ecolelibelle' %}">Libellé</a><span class="arrow"></span></li>
-                <ul class="sub-menu collapse" id="libelle">
-                  <li> {{ libelle }} </li>
-                </ul>
-                <li><a href="{% url 'home:recherche_ecoleuniv' %}">Université</a></li>
-              </ul>
+    <!-- Script -->
+      <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/menu.js' %}"></script>
+    <!-- F.I.N -->
 
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-archive fa-lg"></i> Recherche promo</a><span class="arrow"></span>
-                </li> 
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-globe fa-lg"></i> Recheche région</a><span class="arrow"></span>
-                </li>
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                    <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope  fa-lg"></i> Recheche prime</a><span class="arrow"></span>
-                </li>
-            </ul>
-     </div>
-</nav>
-</div>
+    <!-- MENU RECHERCHE -->
+    <div class="col-sm-2">
+        <nav class="nav-side-menu">
+              <div class="brand">MENU RECHERCHE</div>
+                  <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+                  <div class="menu-list">
+                    <!-- Tout le bloque -->
+                    <ul id="menu-content" class="menu-content collapse out">
+
+                      <!--  Recherche Ecole -->
+                    <li  data-toggle="collapse" data-target="#products" class="collapsed">
+                          <a href="{% url 'home:recherche_ecole' %}"><i class="fa fa-book fa-lg"></i> Recherche ecole</a><span class="arrow"></span>
+                    </li>
+                      <ul class="sub-menu collapse" id="products">
+                        <li data-toggle="collapse" data-target="#libelle"><a href="{% url 'home:recherche_ecolelibelle' %}">Libellé</a><span class="arrow"></span></li>
+                          <ul class="sub-menu collapse" id="libelle">
+                            <li> {{ libelle }} </li>
+                          </ul>
+                          <li><a href="{% url 'home:recherche_ecoleuniv' %}">Université</a></li>
+                      </ul>
+                      <!-- F.I.N -->
+
+                      <!--  Recherche Promo -->
+                        <li data-toggle="collapse" data-target="#promo" class="collapsed">
+                          <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-archive fa-lg"></i> Recherche promo</a><span class="arrow"></span>
+                        </li>
+                          <ul class="sub-menu collapse " id="promo">
+                            <li><a href="{% url 'home:recherche_etudiantetab' %}">Établissement</a></li>
+                            <li><a href="{% url 'home:recherche_etudiantcommune' %}">Siège</a></li>
+                          </ul>
+
+                      <!-- F.I.N -->
+
+                      <!--  Recherche Région -->
+                        <li data-toggle="collapse" data-target="#region" class="collapsed">
+                          <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-globe fa-lg"></i> Recheche région</a><span class="arrow"></span>
+                        </li>
+                          <ul class="sub-menu collapse " id="region">
+                            <li><a href="{% url 'home:recherche_effectif_commune' %}">Commune</a></span></li>
+                            <li><a href="{% url 'home:recherche_effectif_formation' %}">Formation</a></li>
+                          </ul>
+
+                      <!-- F.I.N -->
+
+                      <!--  Recherche Prime -->
+                        <li data-toggle="collapse" data-target="#prime" class="collapsed">
+                            <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope fa-lg"></i> Recheche prime</a><span class="arrow"></span>
+                        </li>
+                            <ul class="sub-menu collapse" id="prime">
+                              <li><a href="{% url 'home:recherche_primeben_etab' %}">Établissement</a></li>
+                              <li><a href="{% url 'home:recherche_primeben_region' %}">Région</a></li>
+                            </ul>
+
+                        <!--  Recherche Région -->
+                    </ul>
+                    <!-- F.I.N -->
+                </div>
+        </nav>
+    </div>
+
+    <!-- F.I.N (MENU RECHERCHE)-->
 {% endblock menu_recherche %}
 {% block contenu_recherche %}
+
 <div class="col-sm-10">
+
+  <!-- Table : Prime, Affichage 25 -->
     {% if list_prime %}
     {% block recherche_prime %}
     <h2>Liste des primes: </h2>
@@ -76,7 +110,9 @@
     </p>
     {% endblock %}
     {% endif %}
+    <!-- F.I.N -->
 
+    <!-- Table : Effectif Régional, Affichage 25 -->
     {% if list_fregion %}
     {% block recherche_effectifregional %}
     <h2>Liste des régions: </h2>
@@ -110,28 +146,31 @@
     </p>
     {% endblock %}
     {% endif %}
-  {% if list_ecoledocto %}
-  {% block recherche_ecoledocto %}
-  <h2>Liste d'école doctorantes : </h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>numéro</th>
-        <th>libelle</th>
-        <th>université</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for i in list_ecoledocto %}
-      	<tr>
-      	  <td><a href="{% url 'home:idecole' i.numero %}"><button type="button" class="btn btn-sm btn-primary">{{ i.numero }}</button></a></td>
-      	  <td>{{ i.libelle }}</td>
-      	  <td>{{ i.liste_tous_etablissements }}</td>
-      	</tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <p>
+    <!-- F.I.N -->
+
+     <!-- Table : Ecole Doctorante , Affichage 25 -->
+    {% if list_ecoledocto %}
+    {% block recherche_ecoledocto %}
+    <h2>Liste d'école doctorantes : </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>numéro</th>
+          <th>libelle</th>
+          <th>université</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_ecoledocto %}
+          <tr>
+            <td><a href="{% url 'home:idecole' i.numero %}"><button type="button" class="btn btn-sm btn-primary">{{ i.numero }}</button></a></td>
+            <td>{{ i.libelle }}</td>
+            <td>{{ i.liste_tous_etablissements }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>
     {% if precparcourd %}
       <a href="{% url 'home:recherche_ecole' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
@@ -140,32 +179,35 @@
     <a href="{% url 'home:recherche_ecole' idparcourd idparcourf %}">
       <button type="button" class="btn btn-lg btn-primary">Suivant</button>
     </a>
-  </p>
-  {% endblock %}
-  {% endif %}
-  {% if list_promo %}
-  {% block recherche_promo %}
-  <h2>Liste des promotions : </h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>Année</th>
-        <th>Discipline</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for i in list_promo %}
-      	<tr>
-      	  <td><a href="{% url 'home:idpromo' i.id %}"><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
-      	  <td>{{ i.rentreeDate }}</td>
-      	  <td>{{ i.Discipline }}</td>
-      	</tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <p>
-    {% if precparcourd %}
+    </p>
+    {% endblock %}
+    {% endif %}
+    <!-- F.I.N -->
+
+    <!-- Table : Etudiant Effectif , Affichage 25 -->
+    {% if list_promo %}
+    {% block recherche_promo %}
+    <h2>Liste des promotions : </h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Année</th>
+          <th>Discipline</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in list_promo %}
+          <tr>
+            <td><a href="{% url 'home:idpromo' i.id %}"><button type="button" class="btn btn-sm btn-primary">{{ i.id }}</button></a></td>
+            <td>{{ i.rentreeDate }}</td>
+            <td>{{ i.Discipline }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>
+      {% if precparcourd %}
       <a href="{% url 'home:recherche_promo' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
       </a>
@@ -175,9 +217,10 @@
       	Suivant
     	</button>
     </a>
-  </p>
-  {% endblock %}
-  {% endif %}
+    </p>
+    {% endblock %}
+    {% endif %}
+    <!-- F.I.N -->
 </div>
 
 </div>
