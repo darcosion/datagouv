@@ -33,34 +33,33 @@
                       <!-- F.I.N -->
 
                       <!--  Recherche Promo -->
-                     
-                        <li data-toggle="collapse" data-target="products" class="collapsed">
+                        <li data-toggle="collapse" data-target="#promo" class="collapsed">
                           <a href="{% url 'home:recherche_promo' %}"><i class="fa fa-archive fa-lg"></i> Recherche promo</a><span class="arrow"></span>
                         </li>
-                          <ul class="sub-menu collapse in" id="products">
-                            <li data-toggle="collapse" data-target="#promo"><a href="{% url 'home:recherche_etudiantuniversite' %}">Établissement</a></li>
-                            <li><a href="{% url 'home:recherche_etudiantuniversite' %}">Siège</a></li>
+                          <ul class="sub-menu collapse " id="promo">
+                            <li data-toggle="collapse" data-target="#"><a href="{% url 'home:recherche_etudiantetab' %}">Établissement</a></li>
+                            <li><a href="{% url 'home:recherche_etudiantcommune' %}">Siège</a></li>
                           </ul>
                     
                       <!-- F.I.N -->
                         
                       <!--  Recherche Région -->
-                        <li data-toggle="collapse" data-target="#products" class="collapsed">
+                        <li data-toggle="collapse" data-target="#region" class="collapsed">
                           <a href="{% url 'home:recherche_effectifregional' %}"><i class="fa fa-globe fa-lg"></i> Recheche région</a><span class="arrow"></span>
                         </li>
-                          <ul class="sub-menu collapse in" id="products">
-                            <li data-toggle="collapse" data-target="#region"><a href="{% url 'home:recherche_effectif' %}">Commune</a></span></li>
+                          <ul class="sub-menu collapse " id="region">
+                            <li data-toggle="collapse" data-target=""><a href="{% url 'home:recherche_effectif' %}">Commune</a></span></li>
                             <li><a href="{% url 'home:recherche_effectif' %}">Formation</a></li>
                           </ul>
                       
                       <!-- F.I.N -->
 
                       <!--  Recherche Prime -->
-                        <li data-toggle="collapse" data-target="#products" class="collapsed">
-                            <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope  fa-lg"></i> Recheche prime</a><span class="arrow"></span>
+                        <li data-toggle="collapse" data-target="#prime" class="collapsed">
+                            <a href="{% url 'home:recherche_prime' %}"><i class="fa fa-envelope fa-lg"></i> Recheche prime</a><span class="arrow"></span>
                         </li>
-                            <ul class="sub-menu collapse in" id="products">
-                              <li data-toggle="collapse" data-target="#prime"><a href="{% url 'home:recherche_primeben' %}">Établissement</a></li>
+                            <ul class="sub-menu collapse" id="prime">
+                              <li data-toggle="collapse" data-target=""><a href="{% url 'home:recherche_primeben' %}">Établissement</a></li>
                               <li><a href="{% url 'home:recherche_effectif' %}">Région</a></li>
                             </ul>
                           
