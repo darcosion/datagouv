@@ -39,22 +39,22 @@ urlpatterns = [
     url(r'^recherche/ecole/univ/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_ecolefiltre, name='recherche_ecoleuniv'),
     
     #Promo Sous menu :
-    url(r'^recherche/promo/etablissement/$', views.recherche_etudiantuniversite, name='recherche_etudiantuniversite'),
-    url(r'^recherche/promo/etablissement/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_etudiantuniversite, name='recherche_etudiantuniversite'),
-    url(r'^recherche/promo/commune/$', views.recherche_etudiantuniversite, name='recherche_etudiantuniversite'),
-    url(r'^recherche/promo/commune/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_etudiantuniversite, name='recherche_etudiantuniversite'),
+    url(r'^recherche/promo/etablissement/$', views.recherche_etudiantuniversite, name='recherche_etudiantetab'),
+    url(r'^recherche/promo/etablissement/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_etudiantuniversite, name='recherche_etudiantetab'),
+    url(r'^recherche/promo/commune/$', views.recherche_etudiantuniversite, name='recherche_etudiantcommune'),
+    url(r'^recherche/promo/commune/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_etudiantuniversite, name='recherche_etudiantcommune'),
 
     #Fregion Sous menu :
-    url(r'^recherche/fregion/formation/$', views.recherche_effectif, name='recherche_effectif'),
-    url(r'^recherche/fregion/formation/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_effectif, name='recherche_effectif'),
-    url(r'^recherche/fregion/commune/$', views.recherche_effectif, name='recherche_effectif'),
-    url(r'^recherche/fregion/commune/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_effectif, name='recherche_effectif'),
+    url(r'^recherche/fregion/formation/$', views.recherche_effectif, name='recherche_effectif_formation'),
+    url(r'^recherche/fregion/formation/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_effectif, name='recherche_effectif_formation'),
+    url(r'^recherche/fregion/commune/$', views.recherche_effectif, name='recherche_effectif_commune'),
+    url(r'^recherche/fregion/commune/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_effectif, name='recherche_effectif_commune'),
     
     #Prime Sous menu :
-    url(r'^recherche/prime/etablissement/$', views.recherche_primeben, name='recherche_primeben'),
-    url(r'^recherche/prime/etablissement/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben'),
-    url(r'^recherche/prime/region/$', views.recherche_primeben, name='recherche_primeben'),
-    url(r'^recherche/prime/region/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben'),
+    url(r'^recherche/prime/etablissement/$', views.recherche_primeben, name='recherche_primeben_etab'),
+    url(r'^recherche/prime/etablissement/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_etab'),
+    url(r'^recherche/prime/region/$', views.recherche_primeben, name='recherche_primeben_region'),
+    url(r'^recherche/prime/region/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_region'),
    
     #Formulaire
     url(r'contact/$', views.contact, name='contact'),
