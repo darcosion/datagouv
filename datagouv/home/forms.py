@@ -37,7 +37,6 @@ class home_etudiantuniversiteForm(forms.Form):
 class EcoleLibelle(forms.Form):
     libelle = forms.CharField()
        
-         
 
 class EffectifregionalFrom(forms.Form):
     rentree_universitaire = forms.CharField(initial="rentree universitaire")
