@@ -72,8 +72,12 @@
       {% if request.path == "/recherche/"%}
       <div class="col-sm-9">
          <div class="panel panel-default">
-              <div class="panel-body">A Basic Panelbxaehnc qsbn</div>
-
+              <div class="panel-body">
+                <form action="/your-name/" method="post">
+                  <label for="your_name">Your name: </label>
+                  <input id="your_name" type="text" name="your_name" value= {{ niveau }} >
+              </form>
+              </div>
                 <center>
                 <div class="panel-footer">
                   <a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Rechercher »</a>
