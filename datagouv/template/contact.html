@@ -73,7 +73,7 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqq6Fxgr2qxed-nMA6GPg266VIxBs2WK-nE9tome2JTUoJ5BRv" width="130" height="130" alt="Seth Frazier" class="img-fluid rounded-circle d-block mx-auto">
                     </div>
                     <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                        <span class="name lead">Sonia </span>
+                        <span class="name lead">Sonia Moussaoui</span>
                         <br>
                         <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="7396 E North St"></span>
                         <span class="text-muted">Paris</span>
@@ -92,7 +92,7 @@
                           <img src="http://img0.gtsstatic.com/insolite/samuel-l-jackson-a-ete-elu-employe-du-mois-chez-mcdonald-s_125926_w620.jpg" width="130" height="130" alt="Debbie Schmidt" class="img-fluid rounded-circle d-block mx-auto">
                       </div>
                       <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                          <label class="name lead">Alex Mcdo</label>
+                          <label class="name lead">Alex Ly</label>
                           <br>
 
                           <span class="fa fa-fw fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="3903 W Alexander Rd"></span>
@@ -118,7 +118,7 @@
 <section id="contact" class="content-section text-center">
         <div class="contact-section">
             <div class="container">
-              <h2>Contactez-nous</h2>
+              <h2>Commentez</h2>
               <p>Comment avez-vous trouvé notre site ?</p>
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -141,9 +141,10 @@
   <div class="container">
     {# futur fonction recursive pour le moteur #}
   {% for i in list_com %}
+
   	<div class="panel panel-default text-left">
             <div class="panel-heading">
-              <h3 class="panel-title">{{ i.nom }}</h3>
+              <h3 class="panel-title">#{{ i.id }} {{ i.nom }}</h3>
             </div>
             <div class="panel-body">
               {{ i.commentaire }}

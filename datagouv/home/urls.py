@@ -6,7 +6,7 @@ app_name = 'home'
 urlpatterns = [
     
     #Pages principales
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.description, name='home'),
     url(r'description/$', views.description, name='description'),
     url(r'recherche/$', views.recherche, name='recherche'),
 
