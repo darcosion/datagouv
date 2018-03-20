@@ -51,14 +51,20 @@ def recherche_etudiantuniversite(request, idparcourd=0, idparcourf=25):
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_promo(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/ecole/EtudiantUniversite/"):
+        list_promo = EtudiantUniversite.objects.order_by('etudiant de l_unversite')[:25]
     list_promo = EtudiantUniversite.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_effectifregional(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/ecole/Effectifregional/"):
+        list_fregion = Effectifregional.objects.order_by('Effectif_regional')[:25]
     list_fregion = EffectifRegional.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_prime(request, idparcourd=0, idparcourf=25):
+    if(request.path == "/recherche/ecole/BenefPrimeExcellence/"):
+      list_prime= BenefPrimeExcellence.objects.order_by('BenefPrimeExcellence')
     list_prime = BenefPrimeExcellence.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
@@ -91,6 +97,8 @@ def rendupromo(request, promoid=0):
 def renduprime(request, primeid=0):
     ret = BenefPrimeExcellence.objects.get(id=primeid)
     return rendumenu(request, "idPrime.html", locals())
+
+
 
 # wrapper d'ajout de form dans le menu
 def rendumenu(request, uri, localvar):
