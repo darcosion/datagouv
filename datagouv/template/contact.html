@@ -138,9 +138,19 @@
       </section>
       <br><br><br>
 <section id="commentaire" class="content-section text-center">
-  {% for i in list_com %}
-  	<p>{{ i.nom }},  {{ i.commentaire }}</p>
+  <div class="container">
+    {# futur fonction recursive pour le moteur #}
+  {% for i in list_com recursive %}
+  	<div class="panel panel-default text-left">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{ i.nom }}</h3>
+            </div>
+            <div class="panel-body">
+              {{ i.commentaire }}
+            </div>
+          </div>
   {% endfor %}
+  </div>
 </section>
 <br><br><br>
 
