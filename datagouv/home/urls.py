@@ -55,6 +55,9 @@ urlpatterns = [
     url(r'^recherche/prime/etablissement/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_etab'),
     url(r'^recherche/prime/region/$', views.recherche_primeben, name='recherche_primeben_region'),
     url(r'^recherche/prime/region/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_region'),
+
+    #form ecole
+    url(r'^recherche/ecole/libellepost/$', views.recherche_post_ecolefiltre, name='recherche_ecolefiltrepost'),
    
     #Formulaire
     url(r'contact/$', views.contact, name='contact'),

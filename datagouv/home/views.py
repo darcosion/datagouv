@@ -12,10 +12,20 @@ def description(request):
     return render(request, "description.html", locals())
 
 def recherche(request):
+    libelleform = LibelleForm()
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecole(request, idparcourd=0, idparcourf=25):
     list_ecoledocto = EcoleDoctorante.objects.all()[int(idparcourd):int(idparcourf)]
+    return rendumenu(request, "recherche.html", locals())
+
+def recherche_post_ecolefiltre(request, idparcourd=0, idparcourf=25):
+    if(request.method == 'POST'):
+        libelleform = LibelleForm(request.POST)
+        if(libelleform.is_valid()):
+            list_ecoledocto = EcoleDoctorante.objects.filter(libelle__contains=libelleform.cleaned_data['libelle'])[int(idparcourd):int(idparcourf)]
+        else:
+            erreur = libelleform.errors
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
