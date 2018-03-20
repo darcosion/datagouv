@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence
+from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence, ContactCommentaire
 from .forms import ContactForm, LibelleForm
 
 
@@ -63,7 +63,17 @@ def recherche_prime(request, idparcourd=0, idparcourf=25):
     return rendumenu(request, "recherche.html", locals())
 
 def contact(request):
-    contactform = ContactForm()
+    list_com = ContactCommentaire.objects.all()
+    if(request.method == 'POST'):
+        contactform = ContactForm(request.POST)
+        if(contactform.is_valid()):
+            newcom = ContactCommentaire(nom=contactform.cleaned_data['nom'],
+            commentaire=contactform.cleaned_data['message'])
+            newcom.save()
+        else:
+            erreur = contactform.errors
+    else:
+        contactform = ContactForm()
     return render(request, "contact.html", locals())
 
 def renduEcoleDocto(request, ecoleid=0):

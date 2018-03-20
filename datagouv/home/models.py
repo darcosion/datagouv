@@ -192,4 +192,11 @@ class BenefPrimeExcellence(models.Model):
     geo_localisation = models.CharField(max_length=100, null=True)
 
 
+class ContactCommentaire(models.Model):
+    ref = models.ForeignKey('ContactCommentaire',
+                               on_delete=models.CASCADE,
+                               null=True)
+    nom = models.CharField(max_length=15, null=True)
+    commentaire = models.CharField(max_length=500, null=True)
+
 # Create your models here.
