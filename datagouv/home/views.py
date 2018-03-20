@@ -5,9 +5,6 @@ from .forms import ContactForm, LibelleForm
 
 
 
-def home(request):
-    return render(request, "base.html", locals())
-
 def description(request):
     return render(request, "description.html", locals())
 
