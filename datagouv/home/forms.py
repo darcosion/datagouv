@@ -15,11 +15,6 @@ class rechercheForm(forms.Form):
 class LibelleForm(rechercheForm):
     libelle = forms.CharField(label="",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
 
-class ContactForm(forms.Form):
-    nom = forms.CharField(max_length=100, label="Votre nom : ")
-    envoyeur = forms.EmailField(label="Votre adresse mail")
-    message = forms.CharField(widget=forms.Textarea)
-
 
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="",initial="niveau")
