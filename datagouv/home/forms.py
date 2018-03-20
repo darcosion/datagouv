@@ -19,7 +19,7 @@ class ContactForm(forms.Form):
     nom = forms.CharField(max_length=100, label="Votre nom : ")
     envoyeur = forms.EmailField(label="Votre adresse mail")
     message = forms.CharField(widget=forms.Textarea)
-    
+
 
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="",initial="niveau")
@@ -31,13 +31,13 @@ class home_etudiantuniversiteForm(forms.Form):
     AcademieUniteInscription = forms.CharField(label="",initial="Academie Unite Inscription")
     NBEtudiantInscriptionAncienne= forms.IntegerField(label="",initial="nombre d'ancienne étudiant inscrit ")
     NBTotalEtudiant= forms.IntegerField(label="",initial="nombre total étudiant inscrit ")
-    NBEtudiantInscriptionPrincipale= forms.IntegerField(label="",initial="nombre d'étudiant à l'inscription principale") 
+    NBEtudiantInscriptionPrincipale= forms.IntegerField(label="",initial="nombre d'étudiant à l'inscription principale")
     NBNouveauBacheliers= forms.IntegerField(label="",initial="nombre de nouveaux bacheleirs")
-                                                                                                    
-         
+
+
 class EcoleLibelle(forms.Form):
     libelle = forms.CharField()
-       
+
 
 class EffectifregionalFrom(forms.Form):
     rentree_universitaire = forms.CharField(initial="rentree universitaire")
@@ -50,20 +50,20 @@ class auth_userForm(forms.Form):
     first_name = forms.CharField(label="",initial="nom")
     last_name = forms.CharField(label="",initial="prénom")
     email= forms.CharField(label="",initial="mail")
-         
+
 class auth_permissionForm(forms.Form):
     name = forms.CharField(label="",initial="nom")
     codename = forms.CharField(label="",initial="son code")
 
 class auth_groupeForm(forms.Form):
     name = forms.CharField(label="",initial="nom du groupe")
-         
+
 class home_benefprimeexcellenceForm(forms.Form):
     etbissement = forms.CharField(label="",initial="etablissement")
     beneficiaires = forms.IntegerField(label="",initial="  beneficiaire")
     academie = forms.CharField(label="",initial="academie")
     annee= forms.IntegerField(label="",initial="annee")
-         
-         
-         
+
+
+
 
