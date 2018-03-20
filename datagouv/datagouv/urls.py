@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^home/', RedirectView.as_view(url='/')),
     url(r'^admin/', admin.site.urls),
     url(r'', include('home.urls', namespace='home')),
+    url(r'^captcha/', include('captcha.urls')),
 ]
