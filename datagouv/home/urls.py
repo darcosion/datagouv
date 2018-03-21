@@ -57,10 +57,17 @@ urlpatterns = [
     url(r'^recherche/prime/region/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_region'),
 
     #form ecole
-    url(r'^recherche/ecole/libellepost/$', views.recherche_post_ecolefiltre, name='recherche_ecolefiltrepost'),
+    url(r'^recherche/ecole/ecolepost/$', views.recherche_post_ecolefiltre, name='recherche_ecolefiltrepost'),
    
     #form promo
-    url(r'recherche/promo/niveaupost/$', views.recherche_post_promo, name='recherche_promopost'),
+    url(r'recherche/promo/promopost/$', views.recherche_post_promo, name='recherche_promopost'),
+
+    #form region
+    url(r'recherche/fregion/regionpost/$', views.recherche_post_effectifregion, name='recherche_regionpost'),
+
+    #form prime
+    url(r'recherche/prime/primepost/$', views.recherche_post_prime, name='recherche_primepost'),
+
     #Formulaire
     url(r'contact/$', views.contact, name='contact'),
 ]
