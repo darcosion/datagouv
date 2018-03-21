@@ -12,10 +12,11 @@ class rechercheForm(forms.Form):
     #ici, on essaiera d'insérer les styles du form
     None
 
+#Base : Ecole Doctorale :
 class LibelleForm(rechercheForm):
     libelle = forms.CharField(label="Libelle ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
 
-
+#Base : Étudiant Université :
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="Niveau", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     Diplome = forms.CharField(label="Diplome", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
@@ -29,13 +30,23 @@ class home_etudiantuniversiteForm(forms.Form):
     NBEtudiantInscriptionPrincipale= forms.IntegerField(label="nombre d'étudiant à l'inscription principale", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
     NBNouveauBacheliers= forms.IntegerField(label="nombre de nouveaux bacheliers", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
 
-
+#Base : Effectif Régional:
 class EffectifregionalFrom(forms.Form):
     rentree_universitaire = forms.CharField(initial="rentree universitaire")
     secteur_de_l_etablissement = forms.CharField(initial="secteur de l'etablissement")
     effectif = forms.DecimalField(initial="discipline", required=False)
     geo_nom= forms.CharField(initial="geo nom", required=False)
 
+#Base : BeneficiairesPrime : 
+class home_benefprimeexcellenceForm(forms.Form):
+    etbissement = forms.CharField(label="",initial="etablissement")
+    beneficiaires = forms.IntegerField(label="",initial="  beneficiaire")
+    academie = forms.CharField(label="",initial="academie")
+    annee= forms.IntegerField(label="",initial="annee")
+
+
+#Forms inutille 
+"""
 class auth_userForm(forms.Form):
     username = forms.CharField(label="", initial="login")
     first_name = forms.CharField(label="",initial="nom")
@@ -48,12 +59,8 @@ class auth_permissionForm(forms.Form):
 
 class auth_groupeForm(forms.Form):
     name = forms.CharField(label="",initial="nom du groupe")
+"""
 
-class home_benefprimeexcellenceForm(forms.Form):
-    etbissement = forms.CharField(label="",initial="etablissement")
-    beneficiaires = forms.IntegerField(label="",initial="  beneficiaire")
-    academie = forms.CharField(label="",initial="academie")
-    annee= forms.IntegerField(label="",initial="annee")
 
 
 
