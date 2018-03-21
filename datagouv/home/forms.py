@@ -13,21 +13,21 @@ class rechercheForm(forms.Form):
     None
 
 class LibelleForm(rechercheForm):
-    libelle = forms.CharField(label="",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    libelle = forms.CharField(label="Libelle ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
 
 
 class home_etudiantuniversiteForm(forms.Form):
-    niveau = forms.CharField(label="",initial="niveau")
-    Diplome = forms.CharField(label="",initial="diplome")
-    Discipline = forms.CharField(label="",initial="discipline")
-    Cycle_universitaire= forms.CharField(label="",initial="Cycle universitaire")
-    rentreeAnnee = forms.IntegerField(label="",initial="annee de la rentrée", required=False)
-    DepartementUniteInscription = forms.CharField(label="",initial="Departement de l'inscription")
-    AcademieUniteInscription = forms.CharField(label="",initial="Academie Unite Inscription")
-    NBEtudiantInscriptionAncienne= forms.IntegerField(label="",initial="nombre d'ancienne étudiant inscrit ", required=False)
-    NBTotalEtudiant= forms.IntegerField(label="",initial="nombre total étudiant inscrit ", required=False)
-    NBEtudiantInscriptionPrincipale= forms.IntegerField(label="",initial="nombre d'étudiant à l'inscription principale", required=False)
-    NBNouveauBacheliers= forms.IntegerField(label="",initial="nombre de nouveaux bacheleirs", required=False)
+    niveau = forms.CharField(label="Niveau", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    Diplome = forms.CharField(label="Diplome", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    Discipline = forms.CharField(label="Discipline", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    Cycle_universitaire= forms.CharField(label="Cycle universitaire", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    rentreeAnnee = forms.IntegerField(label="Année de rentrée", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
+    DepartementUniteInscription = forms.CharField(label="Département de l'inscrit", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    AcademieUniteInscription = forms.CharField(label="Unité de l'académie de l'inscrit", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    NBEtudiantInscriptionAncienne= forms.IntegerField(label="Nombre d'ancien étudiant inscrit", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
+    NBTotalEtudiant= forms.IntegerField(label="Nombre total d'étudiant inscrit", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
+    NBEtudiantInscriptionPrincipale= forms.IntegerField(label="nombre d'étudiant à l'inscription principale", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
+    NBNouveauBacheliers= forms.IntegerField(label="nombre de nouveaux bacheliers", required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
 
 
 class EffectifregionalFrom(forms.Form):
