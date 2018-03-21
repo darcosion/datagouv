@@ -25,6 +25,15 @@ def recherche_post_ecolefiltre(request, idparcourd=0, idparcourf=25):
             erreur = libelleform.errors
     return rendumenu(request, "recherche.html", locals())
 
+def recherche_post_promo(request, idparcourd=0, idparcourf=25):
+    if(request.method == 'POST'):
+        home_etudiantuniversiteForm= home_etudiantuniversiteForm(request.POST)
+        if(home_etudiantuniversiteForm.is_valid()):
+            list_promo = EtudiantUniversite.objects.filter(niveau__contains=home_etudiantuniversiteForm.cleaned_data['niveau'])[int(idparcourd):int(idparcourf)]
+        else:
+            erreur = home_etudiantuniversiteForm.errors
+    return rendumenu(request, "recherche.html", locals())
+
 def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
     if(request.path == "/recherche/ecole/libelle/"):
         list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[int(idparcourd):int(idparcourf)]

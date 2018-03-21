@@ -59,6 +59,8 @@ urlpatterns = [
     #form ecole
     url(r'^recherche/ecole/libellepost/$', views.recherche_post_ecolefiltre, name='recherche_ecolefiltrepost'),
    
+    #form promo
+    url(r'recherche/promo/niveaupost/$', views.recherche_post_promo, name='recherche_promopost'),
     #Formulaire
     url(r'contact/$', views.contact, name='contact'),
 ]
