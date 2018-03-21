@@ -32,7 +32,34 @@ def recherche_post_promo(request, idparcourd=0, idparcourf=25):
     if(request.method == 'POST'):
         home_etudiantuniversiteform = home_etudiantuniversiteForm(request.POST)
         if(home_etudiantuniversiteform.is_valid()):
-            list_promo = EtudiantUniversite.objects.filter(niveau__contains=home_etudiantuniversiteform.cleaned_data['niveau'])[int(idparcourd):int(idparcourf)]
+            list_promo = False
+            if(home_etudiantuniversiteform.cleaned_data['niveau'] != ""):
+                list_promo = EtudiantUniversite.objects.filter(niveau__contains=home_etudiantuniversiteform.cleaned_data['niveau'])[int(idparcourd):int(idparcourf)]
+            if(home_etudiantuniversiteform.cleaned_data['Diplome'] != ""):
+                if(list_promo):
+                    list_promo.filter(diplome__contains=home_etudiantuniversiteform.cleaned_data['Diplome'])[int(idparcourd):int(idparcourf)]
+                else:
+                    list_promo = EtudiantUniversite.objects.filter(diplome__contains=home_etudiantuniversiteform.cleaned_data['Diplome'])[int(idparcourd):int(idparcourf)]
+            if(home_etudiantuniversiteform.cleaned_data['Discipline'] != ""):
+                if(list_promo):
+                    list_promo.filter(Discipline__contains=home_etudiantuniversiteform.cleaned_data['Discipline'])[int(idparcourd):int(idparcourf)]
+                else:
+                    list_promo = EtudiantUniversite.objects.filter(Discipline__contains=home_etudiantuniversiteform.cleaned_data['Discipline'])[int(idparcourd):int(idparcourf)]
+            if(home_etudiantuniversiteform.cleaned_data['Cycle_universitaire'] != ""):
+                if(list_promo):
+                    list_promo.filter(Cycle_universitaire__contains=home_etudiantuniversiteform.cleaned_data['Cycle_universitaire'])[int(idparcourd):int(idparcourf)]
+                else:
+                    list_promo = EtudiantUniversite.objects.filter(Cycle_universitaire__contains=home_etudiantuniversiteform.cleaned_data['Cycle_universitaire'])[int(idparcourd):int(idparcourf)]
+            if(home_etudiantuniversiteform.cleaned_data['rentreeAnnee'] != None):
+                if(list_promo):
+                    list_promo.filter(rentreeAnnee__contains=home_etudiantuniversiteform.cleaned_data['rentreeAnnee'])[int(idparcourd):int(idparcourf)]
+                else:
+                    list_promo = EtudiantUniversite.objects.filter(rentreeAnnee__contains=home_etudiantuniversiteform.cleaned_data['rentreeAnnee'])[int(idparcourd):int(idparcourf)]
+            if(home_etudiantuniversiteform.cleaned_data['DepartementUniteInscription'] != ""):
+                if(list_promo):
+                    list_promo.filter(DepartementUniteInscription__contains=home_etudiantuniversiteform.cleaned_data['DepartementUniteInscription'])[int(idparcourd):int(idparcourf)]
+                else:
+                    list_promo = EtudiantUniversite.objects.filter(DepartementUniteInscription__contains=home_etudiantuniversiteform.cleaned_data['DepartementUniteInscription'])[int(idparcourd):int(idparcourf)]
         else:
             erreur = home_etudiantuniversiteForm.errors
     return rendumenu(request, "recherche.html", locals())
