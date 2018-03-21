@@ -55,6 +55,15 @@ def recherche_post_prime(request, idparcourd=0, idparcourf=25):
             erreur = home_benefprimeexcellenceForm.errors
     return rendumenu(request, "recherche.html", locals())
 
+def recherche_post_utilisateur(request, idparcourd=0, idparcourf=25):
+    if(request.method == 'POST'):
+        auth_userform = auth_userForm(request.POST)
+        if(auth_userform.is_valid()):
+            list_fregion = EffectifRegional.objects.filter(rentree_universitaire__contains=auth_userform.cleaned_data['rentree_universitaire'])[int(idparcourd):int(idparcourf)]
+        else:
+            erreur = auth_userForm.errors
+    return rendumenu(request, "recherche.html", locals())
+
 def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
     if(request.path == "/recherche/ecole/libelle/"):
         list_ecoledocto = EcoleDoctorante.objects.order_by('libelle')[int(idparcourd):int(idparcourf)]
