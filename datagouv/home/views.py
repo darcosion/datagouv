@@ -106,7 +106,7 @@ def rendumenu(request, uri, localvar):
     if 'idparcourd' in localvar:
         localvar['idparcourd']=int(localvar['idparcourd'])+25
         localvar['idparcourf']=int(localvar['idparcourf'])+25
-        if(localvar['idparcourd'] >= 50):
+        if(localvar['idparcourd'] >= 25):
             precparcourd = localvar['idparcourd']-50
             precparcourdf = localvar['idparcourf']-50
 
