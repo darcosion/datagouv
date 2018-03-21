@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence, ContactCommentaire
-from .forms import ContactForm, LibelleForm
+from .forms import ContactForm, LibelleForm, home_etudiantuniversiteForm, EffectifregionalFrom, home_benefprimeexcellenceForm
 
 
 
@@ -10,6 +10,9 @@ def description(request):
 
 def recherche(request):
     libelleform = LibelleForm()
+    home_etudiantuniversiteform = home_etudiantuniversiteForm()
+    Effectifregionalfrom = EffectifregionalFrom()
+    home_benefprimeexcellenceform = home_benefprimeexcellenceForm()
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecole(request, idparcourd=0, idparcourf=25):
@@ -27,11 +30,29 @@ def recherche_post_ecolefiltre(request, idparcourd=0, idparcourf=25):
 
 def recherche_post_promo(request, idparcourd=0, idparcourf=25):
     if(request.method == 'POST'):
-        home_etudiantuniversiteForm= home_etudiantuniversiteForm(request.POST)
-        if(home_etudiantuniversiteForm.is_valid()):
-            list_promo = EtudiantUniversite.objects.filter(niveau__contains=home_etudiantuniversiteForm.cleaned_data['niveau'])[int(idparcourd):int(idparcourf)]
+        home_etudiantuniversiteform = home_etudiantuniversiteForm(request.POST)
+        if(home_etudiantuniversiteform.is_valid()):
+            list_promo = EtudiantUniversite.objects.filter(niveau__contains=home_etudiantuniversiteform.cleaned_data['niveau'])[int(idparcourd):int(idparcourf)]
         else:
             erreur = home_etudiantuniversiteForm.errors
+    return rendumenu(request, "recherche.html", locals())
+
+def recherche_post_effectifregion(request, idparcourd=0, idparcourf=25):
+    if(request.method == 'POST'):
+        Effectifregionalfrom = EffectifregionalFrom(request.POST)
+        if(Effectifregionalfrom.is_valid()):
+            list_fregion = EffectifRegional.objects.filter(rentree_universitaire__contains=Effectifregionalfrom.cleaned_data['rentree_universitaire'])[int(idparcourd):int(idparcourf)]
+        else:
+            erreur = EffectifregionalFrom.errors
+    return rendumenu(request, "recherche.html", locals())
+
+def recherche_post_prime(request, idparcourd=0, idparcourf=25):
+    if(request.method == 'POST'):
+        home_benefprimeexcellenceform = home_benefprimeexcellenceForm(request.POST)
+        if(home_benefprimeexcellenceform.is_valid()):
+            list_prime = BenefPrimeExcellence.objects.filter(beneficiaires__contains=home_benefprimeexcellenceform.cleaned_data['beneficiaires'])[int(idparcourd):int(idparcourf)]
+        else:
+            erreur = home_benefprimeexcellenceForm.errors
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_ecolefiltre(request, idparcourd=0, idparcourf=25):
@@ -120,6 +141,5 @@ def rendumenu(request, uri, localvar):
             precparcourdf = localvar['idparcourf']-50
 
     locals().update(localvar)
-    libelle = LibelleForm()
 
     return render(request, uri, locals())
