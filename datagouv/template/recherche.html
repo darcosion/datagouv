@@ -90,7 +90,14 @@
          
          <div class="col-sm-9">
             <div class="panel panel-default">
-               <div class="panel-body">A Basic Panel</div>
+               <div class="panel-body">
+
+                <form action="{% url 'home:recherche_ecolefiltrepost' %}" method="post">
+                  {% csrf_token %}
+                  {{ home_etudiantuniversiteForm }}
+                  <button type="submit" class="btn btn-default">Envoyer un message</button>
+               </div>
+
                   <center>
                   <div class="panel-footer">
                   <a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Rechercher »</a>
@@ -156,7 +163,7 @@
     </table>
     <center>
     <p>
-      {% if precparcourd %}
+      {% if precparcourdf %}
       <a href="{% url 'home:recherche_prime' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
       </a>
@@ -194,7 +201,7 @@
     </table>
     <center>
     <p>
-      {% if precparcourd %}
+      {% if precparcourdf %}
       <a href="{% url 'home:recherche_effectifregional' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
       </a>
@@ -232,7 +239,7 @@
     </table>
     <center>
     <p>
-    {% if precparcourd %}
+    {% if precparcourdf %}
       <a href="{% url 'home:recherche_ecole' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
       </a>
@@ -270,7 +277,7 @@
     </table>
     <p>
       <center>
-      {% if precparcourd %}
+      {% if precparcourdf %}
       <a href="{% url 'home:recherche_promo' precparcourd precparcourdf %}">
         <button type="button" class="btn btn-lg btn-primary">Precedent</button>
       </a>
