@@ -75,7 +75,8 @@
               <div class="panel-body">
                 <form action="{% url 'home:recherche_ecolefiltrepost' %}" method="post">
                   {% csrf_token %}
-                  {{ libelleform }}
+                  <table>{{ libelleform }}</table>
+
                   <button type="submit" class="btn btn-default">Envoyer un message</button>
               </form>
               </div>
@@ -84,16 +85,16 @@
                   <a class="btn btn-primary btn-lg" href="{% url 'home:recherche' %} " role="button">Rechercher »</a>
                 </center>
                 </div>
+         </div>
 
-          
-          </div>
-         
+
+         <div class="col-sm-2"></div>
          <div class="col-sm-9">
             <div class="panel panel-default">
                <div class="panel-body">
                     <form action="{% url 'home:recherche_promopost' %}" method="post">
                       {% csrf_token %}
-                      {{ home_etudiantuniversiteform }}
+                      <table>{{ home_etudiantuniversiteform }}</table>
                       <button type="submit" class="btn btn-default">Envoyer un message</button>
                       </form>
                   </div>
@@ -109,10 +110,10 @@
             <div class="col-sm-2"></div>
               <div class="col-sm-9">
                   <div class="panel panel-default">
-                     <div class="panel-body">     
+                     <div class="panel-body">
                           <form action="{% url 'home:recherche_regionpost' %}" method="post">
                           {% csrf_token %}
-                          {{ Effectifregionalfrom }}
+                          <table>{{ Effectifregionalfrom }}</table>
                           <button type="submit" class="btn btn-default">Envoyer un message</button>
                           </form>
                       </div>
@@ -126,10 +127,10 @@
                   <div class="col-sm-2"></div>
                     <div class="col-sm-9">
                         <div class="panel panel-default">
-                           <div class="panel-body">   
+                           <div class="panel-body">
                                 <form action="{% url 'home:recherche_primepost' %}" method="post">
                                 {% csrf_token %}
-                                {{ home_benefprimeexcellenceform }}
+                                <table>{{ home_benefprimeexcellenceform }}</table>
                                 <button type="submit" class="btn btn-default">Envoyer un message</button>
                                 </form>
                             </div>

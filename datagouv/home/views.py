@@ -170,11 +170,12 @@ def renduprime(request, primeid=0):
 # wrapper d'ajout de form dans le menu
 def rendumenu(request, uri, localvar):
     if 'idparcourd' in localvar:
+        if(int(localvar['idparcourd']) >= 25):
+            precparcourd = int(localvar['idparcourd'])-25
+            precparcourdf = int(localvar['idparcourf'])-25
+            print("retour (" + localvar['idparcourd'] + ")" + "(" + str(precparcourd) + ")")
         localvar['idparcourd']=int(localvar['idparcourd'])+25
         localvar['idparcourf']=int(localvar['idparcourf'])+25
-        if(localvar['idparcourd'] >= 25):
-            precparcourd = localvar['idparcourd']-50
-            precparcourdf = localvar['idparcourf']-50
 
     locals().update(localvar)
 
