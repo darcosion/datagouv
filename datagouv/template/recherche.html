@@ -74,10 +74,17 @@
          <div class="panel panel-default">
             <div class="panel-heading">École Doctorale :</div>
             <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-6">
                   <form action="{% url 'home:recherche_ecolefiltrepost' %}" method="post">
                           {% csrf_token %}
                   <table>{{ libelleform }}</table>
-            </div>
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+               </div>
+          </div>
             <center>
             <div class="panel-footer">
             <button class="btn btn-primary btn-lg" type="submit">Rechercher »</button>
@@ -92,9 +99,18 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Étudiant & Établissement :</div>
                 <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-6">
                     <form action="{% url 'home:recherche_promopost' %}" method="post">
                               {% csrf_token %}
                       <table>{{ home_etudiantuniversiteform }}</table>
+                    </div>
+                    <div class="col-sm-6">
+                        <strong>Remarque :</strong>Ce jeu de données provient d'un service public certifié.
+                        <br>
+                        <br>
+                    </div>
+                </div>
                 </div>
                 <center>
                 <div class="panel-footer">
@@ -108,12 +124,25 @@
             <div class="col-sm-2"></div>
               <div class="col-sm-9">
                   <div class="panel panel-default">
-                      <div class="panel-heading">Région :</div>
+                      <div class="panel-heading">Effectifs d’étudiants inscrits dans les établissements et formations de l’enseignement supérieur.</div>
                       <div class="panel-body">
+                        <div class="row">
+                          <div class="col-sm-6">
                           <form action="{% url 'home:recherche_regionpost' %}" method="post">
                                   {% csrf_token %}
                           <table>{{ Effectifregionalfrom }}</table>
+                        </div>
+                          <div class="col-sm-6">
+                              <strong>Remarque :</strong> Ce jeu de données provient d'un service public certifié.
+                              <br>
+                              <br>
+                              Ce jeu de données présente les effectifs d’étudiants inscrits dans les établissements et les formations de l’enseignement supérieur, recensés pour les années 2001-2002 à 2012-13 dans les systèmes d’information et enquêtes du ministère de l’Éducation nationale, de l’Enseignement supérieur et de la Recherche, des ministères en charge de l’Agriculture, de la Pêche, de la Culture, de la Santé et des Sports.
+                              Il décline les informations à tous les niveaux géographiques, de la commune jusqu'au national.
+                              <br>
+                              <strong>Producteur : </strong> Ministère de l’Éducation nationale, de l’Enseignement supérieur et de la Recherche > Sous-direction des Systèmes d'information et études statistiques Atlas régional des effectifs d'étudiants : Effectifs d’étudiants inscrits dans les établissements et formations de l’enseignement supérieur par filières, par sexes et par secteurs d'établissement 
+                          </div>
                       </div>
+                    </div>
                       <center>
                       <div class="panel-footer">
                           <button class="btn btn-primary btn-lg" type="submit">Rechercher »</button>
@@ -125,12 +154,26 @@
                   <div class="col-sm-2"></div>
                     <div class="col-sm-9">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Prime :</div>
+                            <div class="panel-heading">Les bénéficiaires de la prime d'excellence scientifique.</div>
+                            
                             <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
                                 <form action="{% url 'home:recherche_primepost' %}" method="post">
                                         {% csrf_token %}
                                 <table>{{ home_benefprimeexcellenceform }}</table>
+                              </div>
+                              <div class="col-sm-6">
+                                <strong>Remarque : </strong> Ce jeu de données provient d'un service public certifié.
+                                <br>
+                                <br>
+                                 <p>À savoir, ce jeu de données présente les effectifs des bénéficiaires de la primed'excellence scientifique (ex prime d'encadrement doctoral et derecherche) par sexe, secteur CNU, corps et établissement.<br>
+                                <strong>La source de données :</strong><br>
+                                Jusqu'à 2008 inclus, les données correspondent à l'attribution de la prime d'encadrement doctoral et de recherche (PEDR) avant son remplacement en 2009 par la prime d'excellence scientifique (PES).Le dispositif de candidature à la prime est dématérialisé depuis la campagne 2007. La base de données de la plate-forme internet constitue la source de données de ce tableau de bord. Pour lesannées antérieures, les candidatures et résultats ont été intégrés à partir du système d'information SIREDO.</p>
+                                  </p>
+                              </div>
                             </div>
+                          </div>
                             <center>
                             <div class="panel-footer">
                                 <button class="btn btn-primary btn-lg" type="submit">Rechercher »</button>
