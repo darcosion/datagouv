@@ -37,7 +37,7 @@ class EffectifregionalFrom(forms.Form):
     effectif = forms.DecimalField(initial="discipline", required=False)
     geo_nom= forms.CharField(initial="geo nom", required=False)
 
-#Base : BeneficiairesPrime : 
+#Base : BeneficiairesPrime :
 class home_benefprimeexcellenceForm(forms.Form):
     etbissement = forms.CharField(label="",initial="etablissement")
     beneficiaires = forms.IntegerField(label="",initial="  beneficiaire")
@@ -45,7 +45,7 @@ class home_benefprimeexcellenceForm(forms.Form):
     annee= forms.IntegerField(label="",initial="annee")
 
 
-#Forms inutille 
+#Forms inutille
 """
 class auth_userForm(forms.Form):
     username = forms.CharField(label="", initial="login")
