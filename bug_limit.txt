@@ -1,0 +1,41 @@
+Le bug "Cannot filter a query once a slice has been taken." présent dans le 
+code du view.py était beaucoup plus intéressant qu'on pourrais le croire
+car il révèle le fonctionnement interne de l'ORM de Django qui est plus
+proche de la notation SQL qu'il le prétend en s'affirmant 
+Object-Related.
+
+Lorsque l'on effectue un Name.object.filter(name="lol"), cela nous donne un
+QuerySet normal, mais dès lors qu'on ajoute [0:10] pour limiter aux dix
+premiers résultats, là, on obtient un SlicerQuerySet, qui est un QuerySet
+constant, donc sur lequel on ne peut plus appliquer de filter.
+
+La raison à cet effet est en réalité assez simple et elle a a voir avec la 
+façon dont Django construit les requêtes demandés dans son ORM.
+
+Si on dit Name.objects.filter(name="lol"), l'orm va créer la requête SQL
+"SELECT * FROM Name WHERE name=`lol`;".
+Si on dit Name.objects.filter(name="lol")[0:10], alors ça donnera : 
+"SELECT * FROM Name WHERE name=`lol` LIMIT 0, 10;"
+
+Mais pourtant l'ORM autorise les cascade de filtre, de sort qu'on puisse
+écrire Name.objects.filter(name="lol").filter(username="toto") et que 
+cela donne : 
+"SELECT * FROM Name WHERE name=`lol` AND username=`toto`;"
+
+Alors pourquoi ne peut on pas écrire :
+Name.objects.filter(name="lol")[0:10].filter(username="toto") ?
+
+Et bien parce que l'ORM Django est dis linéaire, et donc il va écrire : 
+"SELECT * FROM Name WHERE name=`lol` LIMIT 0, 10 AND username=`toto`;"
+ce qui est faux, et un ORM n'a pas le droit de provoquer des erreurs 
+d'écriture SQL, par conséquence, les développeurs de Django on préférés
+rendre les QuerySet avec des limites constant pour éviter d'avoir à
+créer en mémoire des tables de base de donnée entière
+(il semble que cette fonctionnalité de base de donnée existe déjà
+et se nomme clusterisation, elle s'emploie en outre d'une autre façon).
+
+Ma conclusion sur les ORM en général est qu'ils permettent d'éviter la plupart
+des problématiques de SQL en ajoutant une surcouche Object Related, mais
+qu'ils ne permettront en l'état jamais de se passer de SQL.
+Cela justifie donc l'existence de SGDB Object Related qui eux, fonctionnent
+purement et simplement sans SQL.
