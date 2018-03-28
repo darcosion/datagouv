@@ -12,10 +12,6 @@ class rechercheForm(forms.Form):
     #ici, on essaiera d'insérer les styles du form
     None
 
-#Base : Ecole Doctorale :
-class LibelleForm(rechercheForm):
-    libelle = forms.CharField(label="Libelle ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
-
 #Base : Étudiant Université :
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="Niveau", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
@@ -44,9 +40,32 @@ class home_benefprimeexcellenceForm(forms.Form):
     academie = forms.CharField(label="",initial="academie")
     annee= forms.IntegerField(label="",initial="annee")
 
+#Base:ecloedoctorante      
+class home_ecoledoctorante(forms.Form):
+         libelle = forms.CharField(label="",initial="")
+         ville = forms.CharField(label="",initial="ville")
+         libelle_region_avant2016 = forms.IntegerField(label="",initial="libelle_region_avant2016")
+         nom_du_directeur = forms.CharField(label="",initial="nom du directeur")
+         mail= forms.EmailField(label="",initial="annee")
+         site_web = forms.CharField(label="",initial="le site web ")
+
+
+
+
+
+
+
+
+
+
 
 #Forms inutille
 """
+#Base : Ecole Doctorale :
+#class LibelleForm(rechercheForm):
+    #libelle = forms.CharField(label="Libelle ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
+
+
 class auth_userForm(forms.Form):
     username = forms.CharField(label="", initial="login")
     first_name = forms.CharField(label="",initial="nom")
