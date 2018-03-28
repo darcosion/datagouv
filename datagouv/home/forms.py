@@ -43,7 +43,7 @@ class home_benefprimeexcellenceForm(forms.Form):
 class home_ecoledoctorante(forms.Form):
     libelle = forms.CharField(label="Libellé",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     ville = forms.CharField(label="Ville",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
-    libelle_region_avant2016 = forms.IntegerField(label="Libellé de la région",required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
+    libelle_region_avant2016 = forms.CharField(label="Libellé de la région avant 2016",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     nom_du_directeur = forms.CharField(label="Nom du directeur",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     mail= forms.EmailField(label="Mail du directeur",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     site_web = forms.CharField(label="Site web de l'établissement ",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))

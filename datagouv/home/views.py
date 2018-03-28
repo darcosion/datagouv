@@ -27,30 +27,30 @@ def recherche_ecoledoctorante_post(request, idparcourd=0, idparcourf=25):
             if(home_Ecoledoctorante.cleaned_data['libelle'] != ""):
                 list_ecoledocto = EcoleDoctorante.objects.filter(libelle__contains=home_Ecoledoctorante.cleaned_data['libelle'])
             if(home_Ecoledoctorante.cleaned_data['ville'] != ""):
-                if(list_promo):
+                if(list_ecoledocto):
                     list_ecoledocto.filter(ville__contains=home_Ecoledoctorante.cleaned_data['ville'])
                 else:
-                    list_ecoledocto = EtudiantUniversite.objects.filter(ville__contains=home_Ecoledoctorante.cleaned_data['ville'])
-            if(home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'] != None):
-                if(list_promo):
+                    list_ecoledocto = EcoleDoctorante.objects.filter(ville__contains=home_Ecoledoctorante.cleaned_data['ville'])
+            if(home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'] != ""):
+                if(list_ecoledocto):
                     list_ecoledocto.filter(libelle_region_avant2016__contains=home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'])
                 else:
-                    list_ecoledocto = EtudiantUniversite.objects.filter(libelle_region_avant2016__contains=home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'])
+                    list_ecoledocto = EcoleDoctorante.objects.filter(libelle_region_avant2016__contains=home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'])
             if(home_Ecoledoctorante.cleaned_data['nom_du_directeur'] != ""):
-                if(list_promo):
+                if(list_ecoledocto):
                     list_ecoledocto.filter(nom_du_directeur__contains=home_Ecoledoctorante.cleaned_data['nom_du_directeur'])
                 else:
-                    list_ecoledocto = EtudiantUniversite.objects.filter(nom_du_directeur__contains=home_Ecoledoctorante.cleaned_data['nom_du_directeur'])
+                    list_ecoledocto = EcoleDoctorante.objects.filter(nom_du_directeur__contains=home_Ecoledoctorante.cleaned_data['nom_du_directeur'])
             if(home_Ecoledoctorante.cleaned_data['mail'] != ""):
-                if(list_promo):
+                if(list_ecoledocto):
                     list_ecoledocto.filter(mail__contains=home_Ecoledoctorante.cleaned_data['mail'])
                 else:
-                    list_ecoledocto = EtudiantUniversite.objects.filter(mail__contains=home_Ecoledoctorante.cleaned_data['mail'])
+                    list_ecoledocto = EcoleDoctorante.objects.filter(mail__contains=home_Ecoledoctorante.cleaned_data['mail'])
             if(home_Ecoledoctorante.cleaned_data['site_web'] != ""):
-                if(list_promo):
+                if(list_ecoledocto):
                     list_ecoledocto.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
                 else:
-                    list_ecoledocto = EtudiantUniversite.objects.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
+                    list_ecoledocto = EcoleDoctorante.objects.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
             else:
                  erreur = home_Ecoledoctorante.errors
     return rendumenu(request, "recherche.html", locals())
