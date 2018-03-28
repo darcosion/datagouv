@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^recherche/prime/region/(?P<idparcourd>\d+)/(?P<idparcourf>\d+)/$', views.recherche_primeben, name='recherche_primeben_region'),
 
     #form ecole
-    url(r'^recherche/ecole/ecolepost/$', views.recherche_post_ecolefiltre, name='recherche_ecolefiltrepost'),
+    url(r'^recherche/ecole/ecolepost/$', views.recherche_ecoledoctorante_post, name='recherche_ecolefiltre_post'),
    
     #form promo
     url(r'recherche/promo/promopost/$', views.recherche_post_promo, name='recherche_promopost'),
