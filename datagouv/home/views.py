@@ -65,26 +65,21 @@ def recherche_post_promo(request, idparcourd=0, idparcourf=25):
                     list_promo.filter(AcademieUniteInscription__contains=home_etudiantuniversiteform.cleaned_data['AcademieUniteInscription'])
                 else:
                     list_promo = EtudiantUniversite.objects.filter(AcademieUniteInscription__contains=home_etudiantuniversiteform.cleaned_data['AcademieUniteInscription'])
-            if(home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionAncienne'] != None):
-                if(list_promo):
-                    list_promo.filter(NBEtudiantInscriptionAncienne__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionAncienne'])
-                else:
-                    list_promo = EtudiantUniversite.objects.filter(NBEtudiantInscriptionAncienne__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionAncienne'])
             if(home_etudiantuniversiteform.cleaned_data['NBTotalEtudiant'] != None):
                 if(list_promo):
-                    list_promo.filter(NBTotalEtudiant__contains=home_etudiantuniversiteform.cleaned_data['NBTotalEtudiant'])
+                    list_promo.filter(NbTotalEtudiant__contains=home_etudiantuniversiteform.cleaned_data['NBTotalEtudiant'])
                 else:
-                    list_promo = EtudiantUniversite.objects.filter(NBTotalEtudiant__contains=home_etudiantuniversiteform.cleaned_data['NBTotalEtudiant'])
+                    list_promo = EtudiantUniversite.objects.filter(NbTotalEtudiant__contains=home_etudiantuniversiteform.cleaned_data['NBTotalEtudiant'])
             if(home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionPrincipale'] != None):
                 if(list_promo):
-                    list_promo.filter(NBEtudiantInscriptionPrincipale__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionPrincipale'])
+                    list_promo.filter(NbEtudiantInscriptionPrincipale__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionPrincipale'])
                 else:
-                    list_promo = EtudiantUniversite.objects.filter(NBEtudiantInscriptionPrincipale__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionPrincipale'])
+                    list_promo = EtudiantUniversite.objects.filter(NbEtudiantInscriptionPrincipale__contains=home_etudiantuniversiteform.cleaned_data['NBEtudiantInscriptionPrincipale'])
             if(home_etudiantuniversiteform.cleaned_data['NBNouveauBacheliers'] != None):
                 if(list_promo):
-                    list_promo.filter(NBNouveauBacheliers__contains=home_etudiantuniversiteform.cleaned_data['NBNouveauBacheliers'])
+                    list_promo.filter(NbNouveauBacheliers__contains=home_etudiantuniversiteform.cleaned_data['NBNouveauBacheliers'])
                 else:
-                    list_promo = EtudiantUniversite.objects.filter(NBNouveauBacheliers__contains=home_etudiantuniversiteform.cleaned_data['NBNouveauBacheliers'])
+                    list_promo = EtudiantUniversite.objects.filter(NbNouveauBacheliers__contains=home_etudiantuniversiteform.cleaned_data['NBNouveauBacheliers'])
             if(list_promo):
                 list_promo = list_promo[int(idparcourd):int(idparcourf)]
         else:
@@ -103,6 +98,7 @@ def recherche_post_effectifregion(request, idparcourd=0, idparcourf=25):
                     list_fregion.filter(secteur_de_l_etablissement__contains=Effectifregionalfrom.cleaned_data['rentree_universitaire'])
                 else:
                     list_fregion = EffectifRegional.objects.filter(secteur_de_l_etablissement__contains=Effectifregionalfrom.cleaned_data['rentree_universitaire'])
+            if(Effectifregionalfrom.cleaned_data['effectif'] != None):
                 if(list_fregion):
                     list_fregion.filter(effectif__contains=Effectifregionalfrom.cleaned_data['effectif'])
                 else:
@@ -127,9 +123,9 @@ def recherche_post_prime(request, idparcourd=0, idparcourf=25):
                 list_prime = BenefPrimeExcellence.objects.filter(beneficiaires__contains=home_benefprimeexcellenceform.cleaned_data['beneficiaires'])
             if(home_benefprimeexcellenceform.cleaned_data['etbissement'] != ""):
                 if(list_prime):
-                    list_prime.filter(etbissement__contains=home_benefprimeexcellenceform.cleaned_data['etablissement'])
+                    list_prime.filter(etablissement__contains=home_benefprimeexcellenceform.cleaned_data['etbissement'])
                 else:
-                    list_prime = BenefPrimeExcellence.objects.filter(etbissement__contains=home_benefprimeexcellenceform.cleaned_data['etablissement'])
+                    list_prime = BenefPrimeExcellence.objects.filter(etablissement__contains=home_benefprimeexcellenceform.cleaned_data['etbissement'])
             if(home_benefprimeexcellenceform.cleaned_data['academie'] != ""):
                 if(list_prime):
                     list_prime.filter(academie__contains=home_benefprimeexcellenceform.cleaned_data['academie'])
