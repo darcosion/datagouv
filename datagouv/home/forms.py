@@ -12,11 +12,6 @@ class rechercheForm(forms.Form):
     #ici, on essaiera d'insérer les styles du form
     None
 
-#Base : Ecole Doctorale :
-class LibelleForm(rechercheForm):
-    libelle = forms.CharField(label="Libellé ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
-
-
 #Base : Étudiant Université :
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="Niveau", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
