@@ -51,6 +51,8 @@ def recherche_ecoledoctorante_post(request, idparcourd=0, idparcourf=25):
                     list_ecoledocto.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
                 else:
                     list_ecoledocto = EcoleDoctorante.objects.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
+            if(list_ecoledocto):
+                list_ecoledocto = list_ecoledocto[int(idparcourd):int(idparcourf)]
             else:
                  erreur = home_Ecoledoctorante.errors
     return rendumenu(request, "recherche.html", locals())
