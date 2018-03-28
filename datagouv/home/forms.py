@@ -43,7 +43,7 @@ class home_benefprimeexcellenceForm(forms.Form):
     academie = forms.CharField(label="Académie :",required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
     annee= forms.IntegerField(label="Année :",required=False, widget=forms.NumberInput(attrs={'class' : 'form-control'}))
 
-#Base:ecloedoctorante      
+#Base:ecloedoctorante
 class home_ecoledoctorante(forms.Form):
          libelle = forms.CharField(label="",initial="")
          ville = forms.CharField(label="",initial="ville")
