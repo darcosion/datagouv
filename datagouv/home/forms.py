@@ -16,7 +16,6 @@ class rechercheForm(forms.Form):
 class LibelleForm(rechercheForm):
     libelle = forms.CharField(label="Libellé ",max_length=100, widget=forms.TextInput(attrs={'class' : 'form-control'}))
 
->>>>>>> 78551e4ccbd5fb59ed8c26f9c66ac890182a0025
 #Base : Étudiant Université :
 class home_etudiantuniversiteForm(forms.Form):
     niveau = forms.CharField(label="Niveau", required=False, widget=forms.TextInput(attrs={'class' : 'form-control'}))
