@@ -76,7 +76,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <form action="{% url 'home:recherche_ecolefiltrepost' %}" method="post">
+                  <form action="{% url 'home:recherche_ecolefiltre_post' %}" method="post">
                           {% csrf_token %}
                   <table>{{ libelleform }}</table>
                 </div>

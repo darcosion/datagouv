@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import EcoleDoctorante, EtudiantUniversite, EffectifRegional, BenefPrimeExcellence, ContactCommentaire
-from .forms import ContactForm, LibelleForm, home_etudiantuniversiteForm, EffectifregionalFrom, home_benefprimeexcellenceForm
+from .forms import ContactForm, home_etudiantuniversiteForm, EffectifregionalFrom, home_benefprimeexcellenceForm, home_ecoledoctorante
 
 
 
@@ -9,7 +9,7 @@ def description(request):
     return render(request, "description.html", locals())
 
 def recherche(request):
-    libelleform = LibelleForm()
+    home_Ecoledoctorante = home_ecoledoctorante()
     home_etudiantuniversiteform = home_etudiantuniversiteForm()
     Effectifregionalfrom = EffectifregionalFrom()
     home_benefprimeexcellenceform = home_benefprimeexcellenceForm()
@@ -19,13 +19,40 @@ def recherche_ecole(request, idparcourd=0, idparcourf=25):
     list_ecoledocto = EcoleDoctorante.objects.all()[int(idparcourd):int(idparcourf)]
     return rendumenu(request, "recherche.html", locals())
 
-def recherche_post_ecolefiltre(request, idparcourd=0, idparcourf=25):
+def recherche_ecoledoctorante_post(request, idparcourd=0, idparcourf=25):
     if(request.method == 'POST'):
-        libelleform = LibelleForm(request.POST)
-        if(libelleform.is_valid()):
-            list_ecoledocto = EcoleDoctorante.objects.filter(libelle__contains=libelleform.cleaned_data['libelle'])[int(idparcourd):int(idparcourf)]
-        else:
-            erreur = libelleform.errors
+        home_Ecoledoctorante = home_ecoledoctorante(request.POST)
+        if(home_Ecoledoctorante.is_valid()):
+            list_ecoledocto =  False
+            if(home_Ecoledoctorante.cleaned_data['libelle'] != ""):
+                list_ecoledocto = EcoleDoctorante.objects.filter(libelle__contains=home_Ecoledoctorante.cleaned_data['libelle'])
+            if(home_Ecoledoctorante.cleaned_data['ville'] != ""):
+                if(list_promo):
+                    list_ecoledocto.filter(ville__contains=home_Ecoledoctorante.cleaned_data['ville'])
+                else:
+                    list_ecoledocto = EtudiantUniversite.objects.filter(ville__contains=home_Ecoledoctorante.cleaned_data['ville'])
+            if(home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'] != None):
+                if(list_promo):
+                    list_ecoledocto.filter(libelle_region_avant2016__contains=home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'])
+                else:
+                    list_ecoledocto = EtudiantUniversite.objects.filter(libelle_region_avant2016__contains=home_Ecoledoctorante.cleaned_data['libelle_region_avant2016'])
+            if(home_Ecoledoctorante.cleaned_data['nom_du_directeur'] != ""):
+                if(list_promo):
+                    list_ecoledocto.filter(nom_du_directeur__contains=home_Ecoledoctorante.cleaned_data['nom_du_directeur'])
+                else:
+                    list_ecoledocto = EtudiantUniversite.objects.filter(nom_du_directeur__contains=home_Ecoledoctorante.cleaned_data['nom_du_directeur'])
+            if(home_Ecoledoctorante.cleaned_data['mail'] != ""):
+                if(list_promo):
+                    list_ecoledocto.filter(mail__contains=home_Ecoledoctorante.cleaned_data['mail'])
+                else:
+                    list_ecoledocto = EtudiantUniversite.objects.filter(mail__contains=home_Ecoledoctorante.cleaned_data['mail'])
+            if(home_Ecoledoctorante.cleaned_data['site_web'] != ""):
+                if(list_promo):
+                    list_ecoledocto.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
+                else:
+                    list_ecoledocto = EtudiantUniversite.objects.filter(site_web__contains=home_Ecoledoctorante.cleaned_data['site_web'])
+            else:
+                 erreur = home_Ecoledoctorante.errors
     return rendumenu(request, "recherche.html", locals())
 
 def recherche_post_promo(request, idparcourd=0, idparcourf=25):
